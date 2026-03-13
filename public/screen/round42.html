@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@500;800&display=swap" rel="stylesheet">
+<script src="/socket.io/socket.io.js"></script>
+
+<style>
+:root{
+    --primary:#2563eb;
+    --bg:#020617;
+    --glass:rgba(15,23,42,.75);
+    --border:rgba(255,255,255,.12);
+    --text:#f8fafc;
+    --green:#10b981;
+    --red:#ef4444;
+}
+
+html,body{
+    height:100vh;
+    margin:0;
+    overflow:hidden;
+    font-family:Inter,sans-serif;
+    color:var(--text);
+}
+
+/* ===== VIDEO BACKGROUND ===== */
+#bg-video-container{
+    position:fixed;
+    inset:0;
+    z-index:-100;
+    background:var(--bg);
+}
+#bg-video{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+.video-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(2,6,23,.5);
+    z-index:-90;
+}
+
+#main-wrapper {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    height: 8vh;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--glass);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    border-radius: 0 0 28px 28px;
+}
+
+.header-logo {
+    font-size: 2rem;
+    font-weight: 900;
+    background: linear-gradient(170deg, #00ff00 50%, #ff0000 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2vh;
+}
+
+.rules-card {
+    background: var(--glass);
+    border-radius: 30px;
+    padding: 4vh 5vw;
+    border: 1px solid var(--border);
+    backdrop-filter: blur(20px);
+    max-width: 1000px;
+    width: 90%;
+    max-height: 85vh;
+    box-shadow: 0 40px 100px rgba(0,0,0,.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.rules-title {
+    font-size: clamp(1.8rem, 4vh, 3rem);
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 3vh;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.rule-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 2.5vh;
+    align-items: flex-start;
+}
+
+.rule-number {
+    width: 50px;
+    height: 50px;
+    background: rgba(37,99,235,.15);
+    border: 1px solid var(--primary);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 800;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+}
+
+.rule-text {
+    font-size: clamp(1rem, 2vh, 1.4rem);
+    line-height: 1.4;
+    color: rgba(248, 250, 252, .95);
+}
+
+.highlight {
+    color: var(--primary);
+    font-weight: 700;
+}
+
+/* ===== SCORING TABLE ===== */
+.scoring-table {
+    width: 100%;
+    margin-top: 2vh;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+}
+
+.scoring-table th {
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    color: rgba(255,255,255,0.5);
+    padding: 0 15px;
+}
+
+.scoring-row {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border);
+}
+
+.scoring-row td {
+    padding: 1.5vh 15px;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.scoring-row td:first-child { border-radius: 15px 0 0 15px; border-left: 1px solid var(--border); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.scoring-row td:last-child { border-radius: 0 15px 15px 0; border-right: 1px solid var(--border); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+
+.diff-tag { font-family: 'JetBrains Mono', monospace; color: var(--primary); }
+.val-win { color: var(--green); font-family: 'JetBrains Mono', monospace; }
+.val-loss { color: var(--red); font-family: 'JetBrains Mono', monospace; }
+
+.ticker-wrap{
+    height: 6vh;
+    background:#000;
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+    border-top:1px solid var(--border);
+}
+.ticker-move{
+    display:flex;
+    white-space:nowrap;
+    animation:ticker 38s linear infinite;
+}
+.ticker-item{
+    padding:0 2.4rem;
+    font-family:JetBrains Mono;
+    font-weight:800;
+    font-size:1rem;
+}
+@keyframes ticker{
+    0%{transform:translateX(0)}
+    100%{transform:translateX(-50%)}
+}
+</style>
+</head>
+
+<body>
+
+<div id="bg-video-container">
+    <video id="bg-video" autoplay muted loop playsinline preload="auto">
+        <source src="vid.mp4" type="video/mp4">
+    </video>
+</div>
+<div class="video-overlay"></div>
+
+<div id="main-wrapper">
+    <div class="header">
+        <div class="header-logo">TRADE-X 2.0</div>
+        <span class="badge bg-primary px-3 py-2">PHASE: COMPANY SELECTION</span>
+    </div>
+
+    <div class="main">
+        <div class="rules-card">
+            <h1 class="rules-title">Round 4 - Knowledge</h1>
+
+            <div class="rule-row">
+                <div class="rule-number">01</div>
+                <div class="rule-text">
+                    Each team, in <span class="highlight">increasing portfolio order</span>, will select a company and answer a question about it.
+                </div>
+            </div>
+
+            <div class="rule-row">
+                <div class="rule-number">02</div>
+                <div class="rule-text">
+                    Points are awarded based on the <span class="highlight">Question Difficulty</span> selected by the team.
+                </div>
+            </div>
+
+            <table class="scoring-table">
+                <thead>
+                    <tr>
+                        <th>Difficulty</th>
+                        <th>Correct (✓)</th>
+                        <th>Incorrect (X)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="scoring-row">
+                        <td class="diff-tag">EASY</td>
+                        <td class="val-win">+30 PTS</td>
+                        <td class="val-loss">-60 PTS</td>
+                    </tr>
+                    <tr class="scoring-row">
+                        <td class="diff-tag">MEDIUM</td>
+                        <td class="val-win">+50 PTS</td>
+                        <td class="val-loss">-40 PTS</td>
+                    </tr>
+                    <tr class="scoring-row">
+                        <td class="diff-tag">HARD</td>
+                        <td class="val-win">+90 PTS</td>
+                        <td class="val-loss">-30 PTS</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="ticker-wrap">
+        <div id="ticker" class="ticker-move"></div>
+    </div>
+</div>
+
+<script>
+const bgVideo = document.getElementById("bg-video");
+window.addEventListener('load', () => {
+    bgVideo.play().catch(e => {
+        const playOnInteraction = () => { bgVideo.play(); window.removeEventListener('click', playOnInteraction); };
+        window.addEventListener('click', playOnInteraction);
+    });
+});
+
+const socket = io();
+async function updateTicker(){
+    try{
+        const r = await fetch("/api/get_data");
+        const d = await r.json();
+        if(!d.companies) return;
+        const html = d.companies.map(c=>{
+            const prev = c.history && c.history.length > 1 ? c.history[c.history.length - 2] : c.price;
+            const up = c.price >= prev;
+            const diff = prev !== 0 ? (((c.price-prev)/prev)*100).toFixed(2) : "0.00";
+            return `<div class="ticker-item">${c.name} <span style="color:${up?'var(--green)':'var(--red)'}">${c.price} (${diff}%) ${up?'▲':'▼'}</span></div>`;
+        }).join("");
+        document.getElementById("ticker").innerHTML = html + html;
+    }catch(e){ console.error("Ticker error", e); }
+}
+socket.on("data_update", updateTicker);
+updateTicker();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trade-X 2.0 | Market Spin</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@500;800&display=swap" rel="stylesheet">
+<script src="/socket.io/socket.io.js"></script>
+
+<style>
+/* --- ORIGINAL THEME VARIABLES --- */
+:root{
+    --primary:#2563eb;
+    --bg:#020617;
+    --glass:rgba(15,23,42,.75);
+    --border:rgba(255,255,255,.12);
+    --text:#f8fafc;
+    --green:#10b981;
+    --red:#ef4444;
+    --gold: #f59e0b;
+}
+
+html,body{
+    height:100vh;
+    margin:0;
+    overflow:hidden;
+    font-family:Inter,sans-serif;
+    color:var(--text);
+}
+
+/* --- VIDEO BACKGROUND (EXACT) --- */
+#bg-video-container{
+    position:fixed;
+    inset:0;
+    z-index:-100;
+    background:var(--bg);
+}
+#bg-video{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+.video-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(2,6,23,.5); /* Original overlay opacity */
+    z-index:-90;
+}
+
+#main-wrapper {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- HEADER (EXACT) --- */
+.header {
+    height: 8vh;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--glass);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    border-radius: 0 0 28px 28px;
+}
+
+.header-logo {
+    font-size: 2rem;
+    font-weight: 900;
+    background: linear-gradient(170deg, #00ff00 50%, #ff0000 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* --- MAIN AREA (NO BLUR BACKGROUND) --- */
+.main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2vh;
+    flex-direction: column;
+}
+
+/* --- SPINNER STYLES --- */
+.spinner-container {
+    position: relative;
+    width: 450px;
+    height: 450px;
+    /* No background color, No blur */
+}
+
+#wheelCanvas {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    /* Clean border to separate from video */
+    border: 8px solid rgba(255,255,255,0.1); 
+    box-shadow: 0 0 50px rgba(0,0,0,0.8);
+    transition: transform 4s cubic-bezier(0.1, 0.7, 0.1, 1);
+}
+
+.market-pointer {
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-top: 50px solid var(--gold);
+    filter: drop-shadow(0 0 10px #000);
+    z-index: 10;
+}
+
+.center-cap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    background: #020617; /* Solid dark color matching theme */
+    border: 2px solid var(--border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'JetBrains Mono';
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: var(--text);
+    z-index: 5;
+}
+
+/* --- SOLID BUTTON (NO GLASS) --- */
+#spinBtn {
+    margin-top: 40px;
+    background-color: var(--primary); /* Solid Blue */
+    color: white;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 800;
+    font-size: 1.5rem;
+    padding: 15px 60px;
+    border: none;
+    border-radius: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5); /* Regular shadow */
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+#spinBtn:hover {
+    background-color: #1d4ed8; /* Darker blue on hover */
+    transform: scale(1.05);
+}
+
+#spinBtn:disabled {
+    background-color: #475569;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* --- TICKER (EXACT) --- */
+.ticker-wrap{
+    height: 6vh;
+    background:#000;
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+    border-top:1px solid var(--border);
+}
+.ticker-move{
+    display:flex;
+    white-space:nowrap;
+    animation:ticker 38s linear infinite;
+}
+.ticker-item{
+    padding:0 2.4rem;
+    font-family:JetBrains Mono;
+    font-weight:800;
+    font-size:1rem;
+}
+@keyframes ticker{
+    0%{transform:translateX(0)}
+    100%{transform:translateX(-50%)}
+}
+
+/* --- MODAL --- */
+.modal-content {
+    background: #0f172a;
+    border: 1px solid var(--border);
+    color: white;
+}
+.btn-close { filter: invert(1); }
+</style>
+</head>
+
+<body>
+<audio id="tickSound" src="https://www.soundjay.com/communication/sounds/mechanical-clic-1.mp3" preload="auto"></audio>
+<div id="bg-video-container">
+    <video id="bg-video" autoplay muted loop playsinline preload="auto">
+        <source src="vid.mp4" type="video/mp4">
+    </video>
+</div>
+<div class="video-overlay"></div>
+
+<div id="main-wrapper">
+    <div class="header">
+        <div class="header-logo">TRADE-X 2.0</div>
+        <span class="badge bg-primary px-3 py-2">PHASE: RISK SPIN</span>
+    </div>
+
+    <div class="main">
+        <div class="spinner-container">
+            <div class="market-pointer"></div>
+            <canvas id="wheelCanvas" width="900" height="900"></canvas>
+            <div class="center-cap">TX</div>
+        </div>
+
+        <button id="spinBtn">SPIN</button>
+    </div>
+
+    <div class="ticker-wrap">
+        <div id="ticker" class="ticker-move"></div>
+    </div>
+</div>
+
+<div class="modal fade" id="resultModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" style="font-family:'JetBrains Mono'">SECTOR LOCKED</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center py-4">
+        <h2 id="modalTopic" class="fw-bold mb-3" style="font-family:'JetBrains Mono'">Compney</h2>
+        <p id="modalQuestion" class="fs-5 text-light">Flash loading...</p>
+      </div>
+      <div class="modal-footer justify-content-center">
+        <button type="button" class="btn btn-primary px-4" data-bs-dismiss="modal">ACCEPT</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+// --- VIDEO START ---
+const bgVideo = document.getElementById("bg-video");
+window.addEventListener('load', () => {
+    bgVideo.play().catch(e => {
+        const playOnInteraction = () => { bgVideo.play(); window.removeEventListener('click', playOnInteraction); };
+        window.addEventListener('click', playOnInteraction);
+    });
+});
+
+// --- SPINNER LOGIC ---
+const data = [
+   {
+    id: 0,
+    topic: "NeuroMind AI ",
+    color: "#3b82f6",
+    questions: [
+      "A global tech firm invested in NeuroMind AI’s machine learning division, expanding large-scale data infrastructure and raising stock value by 20 points (+ve).",
+      "A next-generation AI chatbot achieved rapid enterprise adoption, increasing per-share value by 50 points (+ve).",
+      "A rival AI startup launched a competing model, reducing adoption rates and decreasing value by 20 points (-ve).",
+      "Pipeline instability in model deployment reduced reliability, impacting stock value by 40 points (-ve)."
+    ]
+  },
+
+  {
+    id: 1,
+    topic: "Syntax Systems",
+    color: "#10b981",
+    questions: [
+      "A strategic partnership with a semiconductor manufacturer enabled optimized compiler integration, improving valuation by 40 points (+ve).",
+      "Industry-wide recognition attracted top open-source contributors, increasing technical credibility and stock value by 50 points (+ve).",
+      "Feature redundancy across product suites created customer confusion, decreasing stock price by 40 points (-ve).",
+      "A critical memory management bug caused production crashes, delaying release cycles and reducing value by 40 points (-ve)."
+    ]
+  },
+
+  {
+    id: 2,
+    topic: "GlobalPulse  ",
+    color: "#f59e0b",
+    questions: [
+      "Strong international investor confidence improved macroeconomic outlook, raising company profits by 60 points (+ve).",
+      "A bilateral trade agreement strengthened global markets, increasing trader profits by 30 points (+ve).",
+      "Regulatory disputes across industry sectors triggered market volatility, resulting in losses of 60 points (-ve).",
+      "A multinational corporation faced government penalties, leading to a share price drop of 50 points (-ve)."
+    ]
+  },
+
+  {
+    id: 3,
+    topic: "LogicSphere ",
+    color: "#ef4444",
+    questions: [
+      "Optimization of supply chain logistics using advanced quantitative modeling reduced operational costs and improved margins by 50 points (+ve).",
+      "Employee training in data analytics and reasoning enhanced efficiency, boosting performance metrics by 40 points (+ve).",
+      "Miscalculated financial forecasting created budgeting discrepancies, reducing projected returns by 40 points (-ve).",
+      "A flawed statistical model in risk assessment led to poor decisions and losses of 40 points (-ve)."
+    ]
+  },
+
+  {
+    id: 4,
+    topic: "MythoLogic Corp",
+    color: "#8b5cf6",
+    questions: [
+      "Collaboration between historians and digital media teams enabled immersive storytelling, improving company performance by 40 points (+ve).",
+      "Positive reception of mythological publications increased audience engagement and raised stock value by 30 points (+ve).",
+      "A cyberattack corrupted digital content archives, disrupting operations and reducing stock prices by 55 points (-ve).",
+      "A mythology-inspired film underperformed at the box office, decreasing valuation by 55 points (-ve)."
+    ]
+  },
+
+  {
+    id: 5,
+    topic: "SportsCorp  ",
+    color: "#06b6d4",
+    questions: [
+      "International sponsorship agreements strengthened league revenues, increasing company value by 50 points (+ve).",
+      "Launch of an advanced sports analytics device improved athlete performance metrics and raised stock price by 50 points (+ve).",
+      "Controversy regarding unfair team selections damaged brand perception, reducing value by 30 points (-ve).",
+      "A global crisis postponed major tournaments, disrupting revenue cycles and lowering stock price by 50 points (-ve)."
+    ]
+  },
+
+  {
+    id: 6,
+    topic: "CinePlix  ",
+    color: "#ec4899",
+    questions: [
+      "Strong media reception for a flagship series boosted platform subscriptions, increasing stock value by 50 points (+ve).",
+      "The company’s CEO received a prestigious industry leadership award, positively impacting shares by 30 points (+ve).",
+      "Allegations of unprofessional conduct harmed production credibility, reducing value by 50 points (-ve).",
+      "A cyberattack leaked unreleased movie content online, causing significant financial losses and negative stock impact 30 (-ve)."
+    ]
+  }
+];
+
+const canvas = document.getElementById('wheelCanvas');
+const ctx = canvas.getContext('2d');
+const spinBtn = document.getElementById('spinBtn');
+const resultModal = new bootstrap.Modal(document.getElementById('resultModal'));
+
+const totalSegments = data.length;
+const arcSize = (2 * Math.PI) / totalSegments;
+const radius = canvas.width / 2;
+const centerX = canvas.width / 2;
+const centerY = canvas.height / 2;
+
+function drawWheel() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    data.forEach((segment, i) => {
+        const angle = i * arcSize;
+        
+        ctx.beginPath();
+        ctx.fillStyle = segment.color;
+        ctx.moveTo(centerX, centerY);
+        ctx.arc(centerX, centerY, radius, angle, angle + arcSize);
+        ctx.lineTo(centerX, centerY);
+        ctx.fill();
+
+        // Dark Border
+        ctx.beginPath();
+        ctx.strokeStyle = "#020617"; 
+        ctx.lineWidth = 10;
+        ctx.moveTo(centerX, centerY);
+        ctx.arc(centerX, centerY, radius, angle, angle + arcSize);
+        ctx.stroke();
+
+        // Text
+        ctx.save();
+        ctx.translate(centerX, centerY);
+        ctx.rotate(angle + arcSize / 2);
+        ctx.textAlign = "right";
+        ctx.fillStyle = "#fff";
+        ctx.font = "900 35px 'JetBrains Mono'"; 
+        ctx.shadowColor = "rgba(0,0,0,0.8)";
+        ctx.shadowBlur = 6;
+        ctx.fillText(segment.topic, radius - 40, 18);
+        ctx.restore();
+    });
+}
+drawWheel();
+
+let currentRotation = 0;
+let isSpinning = false;
+let lastSegmentIndex = -1; // Tracks which segment passed the pointer
+const tickSound = document.getElementById('tickSound');
+
+function playTick() {
+    tickSound.pause();
+    tickSound.currentTime = 0; // Reset to start for rapid clicks
+    tickSound.volume = 0.4;    // Adjust volume as needed
+    tickSound.play().catch(() => {}); 
+}
+
+spinBtn.addEventListener('click', () => {
+    if (isSpinning) return;
+    isSpinning = true;
+    spinBtn.disabled = true;
+    spinBtn.innerText = "RUNNING...";
+
+    // Increase rotation for a longer, more dramatic spin
+    const randomDegree = Math.floor(2500 + Math.random() * 2500); 
+    currentRotation += randomDegree;
+    
+    // Smooth easing for the spin
+    canvas.style.transition = "transform 4.5s cubic-bezier(0.1, 0.7, 0.1, 1)";
+    canvas.style.transform = `rotate(-${currentRotation}deg)`;
+
+    // --- SOUND TRACKING LOGIC ---
+    const checkTick = () => {
+        if (!isSpinning) return;
+
+        // Get the real-time rotation from the CSS animation
+        const style = window.getComputedStyle(canvas);
+        const matrix = new DOMMatrixReadOnly(style.transform);
+        const angle = Math.abs(Math.atan2(matrix.b, matrix.a) * (180 / Math.PI));
+        
+        // Calculate the current segment under the pointer (top = 270 deg)
+        const segmentSize = 360 / totalSegments;
+        const currentSegment = Math.floor((angle + 270) % 360 / segmentSize);
+
+        // If the pointer crosses into a new segment, play the click
+        if (currentSegment !== lastSegmentIndex) {
+            playTick();
+            lastSegmentIndex = currentSegment;
+        }
+
+        // Keep checking until the animation stops
+        requestAnimationFrame(checkTick);
+    };
+    
+    requestAnimationFrame(checkTick);
+});
+
+canvas.addEventListener('transitionend', () => {
+    isSpinning = false;
+    spinBtn.disabled = false;
+    spinBtn.innerText = "SPIN";
+
+    const actualRotation = currentRotation % 360;
+    // Pointer is Top (270deg). Logic: (270 + Rotation) % 360 = Angle under pointer
+    let winningAngle = (270 + actualRotation) % 360;
+    const degreesPerSegment = 360 / totalSegments;
+    let winningIndex = Math.floor(winningAngle / degreesPerSegment);
+    
+    const winner = data[winningIndex];
+
+    setTimeout(() => {
+        const topicEl = document.getElementById('modalTopic');
+        topicEl.innerText = winner.topic;
+        topicEl.style.color = winner.color;
+        
+        const q = winner.questions[Math.floor(Math.random() * winner.questions.length)];
+        document.getElementById('modalQuestion').innerText = q;
+        
+        resultModal.show();
+    }, 500);
+});
+
+// --- TICKER LOGIC ---
+const socket = io();
+async function updateTicker(){
+    try{
+        const r = await fetch("/api/get_data");
+        const d = await r.json();
+        if(!d.companies) return;
+        const html = d.companies.map(c=>{
+            const prev = c.history && c.history.length > 1 ? c.history[c.history.length - 2] : c.price;
+            const up = c.price >= prev;
+            const diff = prev !== 0 ? (((c.price-prev)/prev)*100).toFixed(2) : "0.00";
+            return `<div class="ticker-item">${c.name} <span style="color:${up?'var(--green)':'var(--red)'}">${c.price} (${diff}%) ${up?'▲':'▼'}</span></div>`;
+        }).join("");
+        document.getElementById("ticker").innerHTML = html + html + html + html; 
+    }catch(e){ 
+        // Fallback for UI visualization
+        const fallback = `<div class="ticker-item">SERVER CONNECTION <span style="color:var(--red)">OFFLINE</span></div>`;
+        document.getElementById("ticker").innerHTML = fallback.repeat(10);
+    }
+}
+socket.on("data_update", updateTicker);
+updateTicker();
+</script>
+
+</body>
+</html>

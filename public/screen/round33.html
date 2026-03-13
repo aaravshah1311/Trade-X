@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRADE-X 2.0 | Round 3</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@500;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <script src="/socket.io/socket.io.js"></script>
+
+    <style>
+        :root {
+            --primary: #2563eb;
+            --bg: #020617;
+            --glass: rgba(15, 23, 42, .75);
+            --border: rgba(255, 255, 255, .12);
+            --text: #f8fafc;
+            --green: #10b981;
+            --red: #ef4444;
+            --gold: #fbbf24;
+        }
+
+        html, body {
+            height: 100%; margin: 0; overflow: hidden;
+            font-family: Inter, sans-serif; color: var(--text);
+        }
+
+        #bg-video-container { position: fixed; inset: 0; z-index: -100; background: var(--bg); }
+        #bg-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+        .video-overlay { position: fixed; inset: 0; background: rgba(2, 6, 23, .5); z-index: -90; }
+
+        #main-wrapper { position: relative; z-index: 10; height: 100vh; display: flex; flex-direction: column; }
+
+        .header {
+            height: 8vh; padding: 0 40px; display: flex; align-items: center; justify-content: space-between;
+            background: var(--glass); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border);
+            border-radius: 0 0 28px 28px;
+        }
+
+        .header-logo {
+            font-size: 2.3rem; font-weight: 900;
+            background: linear-gradient(170deg, #00ff00 50%, #ff0000 50%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+
+        .main { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px; }
+        .luck-title { font-size: 3.5rem; font-weight: 800; color: var(--gold); letter-spacing: 4px; text-transform: uppercase; }
+
+        .coin-container { perspective: 1000px; cursor: pointer; transition: transform 0.3s; margin-bottom: 40px; }
+        .coin-container:hover { transform: scale(1.1); }
+        .gold-coin {
+            width: 280px; height: 280px; background: url('obj.png'); background-size: cover;
+            border-radius: 50%; box-shadow: 0 0 60px rgba(251, 191, 36, 0.4);
+            animation: rotateCoin 4s linear infinite;
+        }
+        @keyframes rotateCoin { 0% { transform: rotateY(0deg); } 100% { transform: rotateY(360deg); } }
+
+        /* MODAL */
+        .modal-content {
+            background: var(--glass); backdrop-filter: blur(25px);
+            border: 2px solid var(--gold); border-radius: 30px; color: var(--text);
+        }
+
+        .option-btn {
+            background: rgba(255,255,255,0.05); border: 1px solid var(--border);
+            color: var(--text); padding: 15px; border-radius: 15px; transition: 0.3s; text-align: left; font-size: 1.1rem;
+        }
+        .option-btn.selected { border: 2px solid var(--gold); background: rgba(251, 191, 36, 0.15); }
+        .option-btn.correct { background: var(--green) !important; color: #000 !important; font-weight: 800; border-color: #fff; }
+        .option-btn.wrong { background: var(--red) !important; color: #fff !important; border-color: transparent; }
+
+        #answerRevealArea {
+            margin-top: 20px; padding: 15px; border-radius: 15px;
+            background: rgba(16, 185, 129, 0.1); border: 1px dashed var(--green);
+            display: none;
+        }
+
+        /* TICKER */
+        .ticker-wrap { height: 8vh; background: #000; display: flex; align-items: center; overflow: hidden; border-top: 1px solid var(--border); }
+        .ticker-move { display: flex; white-space: nowrap; animation: ticker 38s linear infinite; }
+        .ticker-item { padding: 0 2.4rem; font-family: JetBrains Mono; font-weight: 800; font-size: 1.05rem; }
+        @keyframes ticker { 0% { transform: translateX(0) } 100% { transform: translateX(-50%) } }
+
+        .severity-badge { font-family: 'JetBrains Mono'; padding: 6px 16px; border-radius: 10px; text-transform: uppercase; font-weight: 800; }
+        .hard { background: var(--red); }
+        .medium { background: var(--primary); }
+        .easy { background: var(--green); color: #000; }
+        
+        .btn-eye {
+            width: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+        }
+        /* Scaled up Modal */
+/* FORCE HEADER & FOOTER TO STAY PUT */
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 2000; /* Above everything */
+    height: 8vh;
+}
+
+.ticker-wrap {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 2000;
+    height: 8vh;
+}
+
+/* MODAL / OVERLAY ADJUSTMENTS */
+/* Fixed UI Elements */
+.header, .ticker-wrap {
+    position: fixed;
+    width: 100%;
+    height: 8vh;
+    z-index: 2000;
+}
+.header { top: 0; }
+.ticker-wrap { bottom: 0; }
+
+/* The Full-Screen Overlay */
+/* The Shockwave Pulse */
+.shockwave {
+    position: fixed;
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    animation: ripple 0.8s cubic-bezier(0, 0, 0.2, 1) forwards;
+}
+
+@keyframes ripple {
+    0% { width: 0; height: 0; opacity: 1; transform: translate(-50%, -50%); }
+    100% { width: 500px; height: 500px; opacity: 0; transform: translate(-50%, -50%); border-width: 0; }
+}
+
+/* Modal Content - Zoom Transition */
+.modal-content {
+    background: radial-gradient(circle at center, rgba(15, 23, 42, 0.99) 0%, rgba(2, 6, 23, 1) 100%);
+    backdrop-filter: blur(30px);
+    border: none;
+    height: 84vh;
+    width: 100vw;
+    position: fixed;
+    top: 8vh;
+    left: 0;
+    
+    /* Initial small & transparent */
+    transform: scale(0.1);
+    opacity: 0;
+    transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1), 
+                opacity 0.5s ease;
+}
+
+.modal.show .modal-content {
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* Dramatic shifting of Company Name */
+.reveal-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Initial center */
+    padding: 0 10% 15vh 10%;
+    transition: all 1s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.reveal-container.active {
+    justify-content: flex-start;
+    padding-top: 8vh;
+}
+
+#qCompany {
+    font-size: clamp(2.5rem, 8.3vw, 5.5rem);
+    font-weight: 900;
+    color: var(--gold);
+    text-shadow: 0 0 40px rgba(251, 191, 36, 0.3);
+    transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    text-transform: uppercase;
+}
+
+/* Make company name slightly larger while it's in the center */
+.reveal-container:not(.active) #qCompany {
+    transform: scale(1.1);
+}
+
+#qSeverity {
+    transition: all 1s ease;
+}
+
+/* High-Smoothness Fade for Question */
+#questionContent {
+    opacity: 0;
+    transform: translateY(30px);
+    visibility: hidden;
+    width: 100%;
+    max-width: 1100px;
+    transition: opacity 1s ease 0.5s, transform 1s ease 0.5s; /* Delay ensures it waits for company to move */
+}
+
+#questionContent.show {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+}
+
+#qText {
+    /* 1.8rem = Min size | 4vw = Scaling speed | 3.2rem = Max size */
+    /* To increase size: Increase the 3.2rem and 4vw */
+    font-size: clamp(0.8rem, 2.7vw, 1.8rem); /* Increase 3rem to make question bigger */
+    font-weight: 700;
+    line-height: 1.4;
+    color: #f1f5f9;
+}
+
+/* CENTERED BUTTON COMMAND CENTER */
+.bottom-actions {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 12vh;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center alignment */
+    gap: 20px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    padding-bottom: 20px;
+}
+
+.btn-command {
+    height: 65px;
+    min-width: 65px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    text-transform: uppercase;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
+}
+
+#btnReveal {
+    background: var(--gold);
+    color: #000;
+    padding: 0 35px;
+    box-shadow: 0 0 25px rgba(251, 191, 36, 0.4);
+}
+
+.btn-close-protocol {
+    background: rgba(255, 255, 255, 0.05);
+    color: #64748b;
+    border: 1px solid var(--border);
+    padding: 0 25px;
+}
+
+.btn-close-protocol:hover {
+    background: var(--red);
+    color: white;
+    border-color: var(--red);
+}
+
+/* Options Styling */
+.option-btn {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border);
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+}
+
+.option-btn:hover:not(:disabled) {
+    background: rgba(37, 99, 235, 0.15);
+    border-color: var(--primary);
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    color: #fff;
+}
+
+
+    </style>
+</head>
+
+<body>
+    <div id="bg-video-container"><video id="bg-video" autoplay muted loop playsinline><source src="vid.mp4" type="video/mp4"></video></div>
+    <div class="video-overlay"></div>
+
+    <div id="main-wrapper">
+        <div class="header">
+            <div class="header-logo">TRADE-X 2.0</div>
+            <span class="badge bg-warning text-dark px-3 py-2 fw-800">PHASE: TEST YOUR LUCK</span>
+        </div>
+
+        <div class="main">
+            <h1 class="luck-title">Round 3 - Test Your Luck</h1>
+            <p class="text-secondary mb-5 h5"><b>Test Your Luck:</b> Share price will change based on your answer.</p>
+            <div class="coin-container" onclick="triggerLuckDraw()">
+                <div class="gold-coin"></div>
+            </div>
+        </div>
+
+        <div class="ticker-wrap"><div id="ticker" class="ticker-move"></div></div>
+    </div>
+
+<div class="modal fade" id="qModal" tabindex="-1" data-bs-backdrop="static">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="reveal-container">
+                <div id="qCompany">---</div>
+                <div id="qSeverity" class="severity-badge">---</div><br>
+
+                <div id="questionContent" style="display: none;">
+                    <h3 id="qText" class="fw-800 text-center"></h3>
+                    <div id="optionsContainer" class="d-flex flex-wrap justify-content-center gap-3 mt-4"></div>
+                </div>
+            </div>
+
+ <div class="bottom-actions">
+    <div class="d-flex align-items-center gap-3">
+        <button id="btnReveal" class="btn-command" onclick="revealAnswer()" style="display: none;">
+            <i class="bi bi-eye-fill fs-3"></i>
+        </button>
+        
+        <button class="btn-command btn-close-protocol px-4" data-bs-dismiss="modal">
+            <i class="bi bi-x-lg"></i>
+            <span class="ms-2">Close Protocol</span>
+        </button>
+    </div>
+</div>
+        </div>
+    </div>
+</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const socket = io();
+        let currentQuestion = null;
+
+        async function updateTicker() {
+            try {
+                const r = await fetch("/api/get_data");
+                const d = await r.json();
+                if (!d.companies) return;
+                const html = d.companies.map(c => {
+                    const prev = c.history && c.history.length > 1 ? c.history[c.history.length - 2] : c.price;
+                    const up = c.price >= prev;
+                    const diff = prev !== 0 ? (((c.price - prev) / prev) * 100).toFixed(2) : "0.00";
+                    return `<div class="ticker-item">${c.name} <span style="color:${up ? 'var(--green)' : 'var(--red)'}">${c.price} (${diff}%) ${up ? '▲' : '▼'}</span></div>`;
+                }).join("");
+                document.getElementById("ticker").innerHTML = html + html;
+            } catch (e) { console.error("Ticker error", e); }
+        }
+        socket.on("data_update", updateTicker);
+        updateTicker();
+
+     // --- 1. THE DRAW FUNCTION ---
+// --- THE DRAW FUNCTION ---
+async function triggerLuckDraw(event) {
+    // 1. Create Shockwave Effect at Click Position
+    const ripple = document.createElement('div');
+    ripple.className = 'shockwave';
+    // Position ripple at the click or coin center
+    const rect = document.querySelector('.gold-coin').getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+    
+    ripple.style.left = `${centerX}px`;
+    ripple.style.top = `${centerY}px`;
+    document.body.appendChild(ripple);
+    setTimeout(() => ripple.remove(), 800);
+
+    try {
+        const response = await fetch('/api/draw-luck');
+        if (response.status === 404) return alert("All events settled!");
+        currentQuestion = await response.json();
+
+        const modalElement = document.getElementById('qModal');
+        const modalContent = modalElement.querySelector('.modal-content');
+        const container = modalElement.querySelector('.reveal-container');
+        const qContent = document.getElementById('questionContent');
+        const btnReveal = document.getElementById('btnReveal');
+
+        // 2. Set Origin of Expansion to the Coin center
+        modalContent.style.transformOrigin = `${centerX}px ${centerY - 80}px`; // Offset for header
+
+        // Reset UI
+        container.classList.remove('active');
+        qContent.classList.remove('show');
+        qContent.style.display = 'none';
+        // FULL RESET OF REVEAL BUTTON
+btnReveal.style.display = 'none';
+btnReveal.style.opacity = '1';
+btnReveal.style.transition = 'none';
+btnReveal.disabled = false;
+btnReveal.classList.remove('disabled');
+        document.getElementById('optionsContainer').innerHTML = '';
+
+        // Load Content
+        document.getElementById('qCompany').innerText = currentQuestion.company;
+        document.getElementById('qSeverity').innerText = currentQuestion.severity;
+        document.getElementById('qSeverity').className = `severity-badge ${currentQuestion.severity.toLowerCase()}`;
+
+        // 3. Trigger Modal Show
+        const myModal = new bootstrap.Modal(modalElement);
+        myModal.show();
+
+        // 4. Reveal Sequence
+        setTimeout(() => {
+            // Shift company to top
+            container.classList.add('active');
+
+            document.getElementById('qText').innerText = currentQuestion.question;
+            
+            if (currentQuestion.type === "mcq") {
+                currentQuestion.options.forEach((opt, index) => {
+                    const btn = document.createElement('button');
+                    btn.className = 'option-btn';
+                    btn.innerHTML = `<b>${index + 1}.</b> ${opt}`;
+                    btn.onclick = function() {
+                        document.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+                        this.classList.add('selected');
+                        btnReveal.style.display = 'flex'; 
+                    };
+                    document.getElementById('optionsContainer').appendChild(btn);
+                });
+            } else {
+                btnReveal.style.display = 'flex';
+            }
+
+            // Smooth Fade In of Question
+            qContent.style.display = 'block';
+            setTimeout(() => { qContent.classList.add('show'); }, 150);
+
+        }, 3000); // 3-second build-up
+
+    } catch (e) { console.error(e); }
+}
+
+function revealAnswer() {
+    if (!currentQuestion) return;
+    const btnReveal = document.getElementById('btnReveal');
+    const answerArea = document.getElementById('answerRevealArea');
+    const ansText = document.getElementById('correctAnswerText');
+
+    btnReveal.style.transition = "opacity 0.4s ease";
+btnReveal.style.opacity = '0';
+
+setTimeout(() => {
+    btnReveal.style.display = 'none';
+    btnReveal.style.opacity = '1';   // reset for next round
+    btnReveal.style.transition = '';
+}, 400);
+
+    if (currentQuestion.type === "mcq") {
+        document.querySelectorAll('.option-btn').forEach(btn => {
+            btn.disabled = true;
+            const btnCleanText = btn.innerText.split('. ').slice(1).join('. ');
+            if (btnCleanText === currentQuestion.answer) btn.classList.add('correct');
+            else if (btn.classList.contains('selected')) btn.classList.add('wrong');
+        });
+    }
+
+    ansText.innerText = currentQuestion.answer;
+    answerArea.style.display = 'block';
+    
+    const container = document.querySelector('.reveal-container');
+    setTimeout(() => {
+        container.scrollTo({ top: container.scrollHeight, behavior: 'smooth' });
+    }, 150);
+}
+
+    </script>
+</body>
+</html>

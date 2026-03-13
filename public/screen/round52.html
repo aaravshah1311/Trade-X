@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TRADE-X 2.0 | Auction Rules</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@500;800&display=swap" rel="stylesheet">
+<script src="/socket.io/socket.io.js"></script>
+
+<style>
+:root{
+    --primary:#2563eb;
+    --bg:#020617;
+    --glass:rgba(15,23,42,.75);
+    --border:rgba(255,255,255,.12);
+    --text:#f8fafc;
+    --green:#10b981;
+    --red:#ef4444;
+    --gold:#fbbf24;
+}
+
+html,body{
+    height:100%;
+    margin:0;
+    overflow:hidden;
+    font-family:Inter,sans-serif;
+    color:var(--text);
+}
+
+/* ===== VIDEO BACKGROUND ===== */
+#bg-video-container{
+    position:fixed;
+    inset:0;
+    z-index:-100;
+    background:var(--bg);
+}
+#bg-video{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+.video-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(2,6,23,.65);
+    z-index:-90;
+}
+
+#main-wrapper {
+    position: relative;
+    z-index: 10;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===== HEADER ===== */
+.header {
+    height: 8vh;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--glass);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    border-radius: 0 0 28px 28px;
+}
+
+.header-logo {
+    font-size: 2.3rem;
+    font-weight: 900;
+    background: linear-gradient(170deg, #00ff00 50%, #ff0000 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* ===== MAIN CONTENT ===== */
+.main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.rules-card {
+    background: var(--glass);
+    border-radius: 30px;
+    padding: clamp(25px, 4vw, 50px);
+    border: 1px solid var(--border);
+    backdrop-filter: blur(20px);
+    max-width: 1100px;
+    width: 100%;
+    box-shadow: 0 40px 100px rgba(0,0,0,.5);
+}
+
+.rules-title {
+    font-size: clamp(1.8rem, 3.5vw, 3rem);
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 35px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--gold);
+}
+
+.rules-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.rule-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+    align-items: flex-start;
+}
+
+.rule-number {
+    width: 45px;
+    height: 45px;
+    background: rgba(37,99,235,.15);
+    border: 1px solid var(--primary);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 800;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.rule-text {
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+    line-height: 1.3;
+    color: rgba(248, 250, 252, .9);
+}
+
+.highlight { color: var(--primary); font-weight: 700; }
+.highlight-gold { color: var(--gold); font-weight: 700; }
+
+/* ===== OUTCOME BOXES ===== */
+.outcome-container {
+    display: flex;
+    gap: 20px;
+    margin-top: 25px;
+}
+
+.outcome-box {
+    flex: 1;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,0.03);
+}
+
+.outcome-box.win { border-color: var(--green); background: rgba(16, 185, 129, 0.05); }
+.outcome-box.lose { border-color: var(--red); background: rgba(239, 68, 68, 0.05); }
+
+.outcome-label {
+    display: block;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+    opacity: 0.8;
+}
+
+.outcome-value {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 2.2rem;
+    font-weight: 800;
+}
+
+.win .outcome-value { color: var(--green); }
+.lose .outcome-value { color: var(--red); }
+
+/* ===== CUSTOM TICKER ===== */
+.ticker-wrap{
+    height: 8vh;
+    background: #000;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    border-top: 1px solid var(--border);
+}
+.ticker-move{
+    display: flex;
+    white-space: nowrap;
+    animation: ticker 45s linear infinite;
+}
+.ticker-item{
+    padding: 0 4rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: #fff;
+}
+
+.tradex-gradient {
+    background: linear-gradient(135deg, #00ff00 50%, #ff0000 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 900;
+}
+
+.white-stick { color: #ffffff; font-weight: 400; padding: 0 5px; }
+
+@keyframes ticker{
+    0%{transform:translateX(0)}
+    100%{transform:translateX(-50%)}
+}
+</style>
+</head>
+
+<body>
+
+<div id="bg-video-container">
+    <video id="bg-video" autoplay muted loop playsinline preload="auto">
+        <source src="vid.mp4" type="video/mp4">
+    </video>
+</div>
+<div class="video-overlay"></div>
+
+<div id="main-wrapper">
+    <div class="header">
+        <div class="header-logo">TRADE-X 2.0</div>
+        <span class="badge bg-warning text-dark px-3 py-2 fw-800">PHASE: AUCTION ROUND</span>
+    </div>
+
+    <div class="main">
+        <div class="rules-card">
+            <h1 class="rules-title">Round 5 - The Auction</h1>
+
+            <div class="rules-grid">
+                <div>
+                    <div class="rule-row">
+                        <div class="rule-number">01</div>
+                        <div class="rule-text">Companies will be put up for bid <span class="highlight">one by one</span>.</div>
+                    </div>
+                    <div class="rule-row">
+                        <div class="rule-number">02</div>
+                        <div class="rule-text">Payments are drawn from your <span class="highlight">remaining purse</span> and portfolio.</div>
+                    </div>
+                    <div class="rule-row">
+                        <div class="rule-number">03</div>
+                        <div class="rule-text">Base price for every company starts at <span class="highlight-gold">₹500</span>.</div>
+                    </div>
+                    <div class="rule-row">
+                        <div class="rule-number">04</div>
+                        <div class="rule-text">The highest bidder must answer a <span class="highlight">technical question</span> about the company.</div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="rule-row">
+                        <div class="rule-number">05</div>
+                        <div class="rule-text">Winning the game requires the <span class="highlight">highest final portfolio</span> value.</div>
+                    </div>
+                    <div class="rule-row">
+                        <div class="rule-number">06</div>
+                        <div class="rule-text">Final totals are calculated by <span class="highlight">adding/subtracting</span> remaining amounts.</div>
+                    </div>
+                    
+                    <div class="outcome-container">
+                        <div class="outcome-box win">
+                            <span class="outcome-label">Correct Answer</span>
+                            <div class="outcome-value">2X BID</div>
+                            <div class="small mt-1">Portfolio Boost</div>
+                        </div>
+                        
+                        <div class="outcome-box lose">
+                            <span class="outcome-label">Wrong Answer</span>
+                            <div class="outcome-value">0.5X BID</div>
+                            <div class="small mt-1">Value Penalty</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="tickerComponent" class="ticker-wrap">
+        <div id="tickerContent" class="ticker-move">
+            </div>
+    </div>
+</div>
+
+<script>
+    // ==========================================
+    // CONFIGURATION SECTION
+    // ==========================================
+    const SHOW_TICKER = false; 
+    // ==========================================
+
+    // Ticker Initialization
+    if(!SHOW_TICKER) {
+        document.getElementById('tickerComponent').style.display = 'none';
+    } else {
+        const creditHtml = `
+            <div class="ticker-item">
+                <span class="tradex-gradient">TRADE-X 2.0</span> Digitalization System Developed By: 
+                <span class="text-info">Aarav Shah</span> <span class="white-stick">|</span> <span class="text-info">aaravprogrammers@gmail.com</span>
+            </div>
+            <div class="ticker-item">Event Lead: <span class="text-info">Pratham Upadhyay</span></div>
+            <div class="ticker-item">Logistics Lead: <span class="text-info">Ansh Darji</span></div>
+        `;
+        document.getElementById('tickerContent').innerHTML = creditHtml + creditHtml;
+    }
+</script>
+
+</body>
+</html>

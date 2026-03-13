@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@500;800&display=swap" rel="stylesheet">
+<script src="/socket.io/socket.io.js"></script>
+
+<style>
+:root{
+    --primary:#2563eb;
+    --bg:#020617;
+    --glass:rgba(15,23,42,.75);
+    --border:rgba(255,255,255,.12);
+    --text:#f8fafc;
+    --green:#10b981;
+    --red:#ef4444;
+}
+
+html,body{
+    height:100%;
+    margin:0;
+    overflow:hidden;
+    font-family:Inter,sans-serif;
+    color:var(--text);
+}
+
+/* ===== VIDEO ===== */
+#bg-video-container{
+    position:fixed;
+    inset:0;
+    z-index:-100;
+    background:var(--bg);
+}
+#bg-video{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+.video-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(2,6,23,.5);
+    z-index:-90;
+}
+
+/* ===== MAIN WRAPPER ===== */
+#main-wrapper {
+    position: relative;
+    z-index: 10;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===== HEADER ===== */
+.header {
+    height: 8vh;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--glass);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    border-radius: 0 0 28px 28px;
+    
+}
+
+.header-logo {
+    font-size: 2.3rem;
+    font-weight: 900;
+    background: linear-gradient(170deg, #00ff00 50%, #ff0000 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+}
+
+/* ===== CONTENT ===== */
+.main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.rules-card {
+    background: var(--glass);
+    border-radius: 30px;
+    padding: clamp(15px, 3vh, 35px) clamp(30px, 5vw, 60px);
+    border: 1px solid var(--border);
+    backdrop-filter: blur(20px);
+    max-width: 900px;
+    width: 100%;
+    box-shadow: 0 40px 100px rgba(0,0,0,.5);
+}
+
+.rules-title {
+    font-size: clamp(1.8rem, 3.5vw, 3rem);
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* ===== SINGLE VERTICAL COLUMN LIST ===== */
+.company-list-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 15px 0;
+    padding: 15px 30px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    align-items: flex-start;
+}
+
+.company-item {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: clamp(1rem, 1.8vw, 1.3rem);
+    color: var(--green);
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-transform: uppercase;
+}
+
+.company-item::before {
+    content: "0" attr(data-index); /* Dynamic numbering */
+    color: var(--primary);
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+/* ===== RULE ROW ===== */
+.rule-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+    align-items: flex-start;
+}
+
+.rule-number {
+    width: 45px;
+    height: 45px;
+    background: rgba(37,99,235,.15);
+    border: 1px solid var(--primary);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 800;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+}
+
+.rule-text {
+    font-size: clamp(1rem, 1.8vw, 1.4rem);
+    line-height: 1.3;
+    color: rgba(248, 250, 252, .95);
+    font-weight: 600;
+}
+
+.highlight {
+    color: var(--green);
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+/* ===== TICKER ===== */
+.ticker-wrap{
+    height: 7vh;
+    background:#000;
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+    border-top:1px solid var(--border);
+}
+.ticker-move{
+    display:flex;
+    white-space:nowrap;
+    animation:ticker 38s linear infinite;
+}
+.ticker-item{
+    padding:0 2.4rem;
+    font-family:JetBrains Mono;
+    font-weight:800;
+    font-size:1rem;
+}
+@keyframes ticker{
+    0%{transform:translateX(0)}
+    100%{transform:translateX(-50%)}
+}
+</style>
+</head>
+
+<body>
+
+<div id="bg-video-container">
+    <video id="bg-video" autoplay muted loop playsinline preload="auto">
+        <source src="vid.mp4" type="video/mp4">
+    </video>
+</div>
+<div class="video-overlay"></div>
+
+<div id="main-wrapper">
+    <div class="header">
+        <div class="header-logo">TRADE-X 2.0</div>
+        <span class="badge bg-danger px-3 py-2">MANDATORY INITIALIZATION</span>
+    </div>
+
+    <div class="main">
+        <div class="rules-card">
+            <h1 class="rules-title">Purchase</h1>
+
+            <div class="rule-row">
+                <div class="rule-number">01</div>
+                <div class="rule-text">
+                    Each team must buy stocks of <span class="highlight">all 7 companies</span>:
+                </div>
+            </div>
+
+            <div class="company-list-vertical">
+                <div class="company-item" data-index="1">NeuroMind AI</div>
+                <div class="company-item" data-index="2">Syntax Systems</div>
+                <div class="company-item" data-index="3">GlobalPulse</div>
+                <div class="company-item" data-index="4">LogicSphere</div>
+                <div class="company-item" data-index="5">MythoLogic Corp</div>
+                <div class="company-item" data-index="6">SportsCorp</div>
+                <div class="company-item" data-index="7">CinePlix</div>
+            </div>
+
+            <div class="rule-row">
+                <div class="rule-number">02</div>
+                <div class="rule-text">
+                    Purchasing <span class="highlight">3 stocks</span> per company is <span class="highlight">compulsory</span>.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ticker-wrap">
+        <div id="ticker" class="ticker-move"></div>
+    </div>
+</div>
+
+<script>
+const bgVideo = document.getElementById("bg-video");
+window.addEventListener('load', () => {
+    bgVideo.play().catch(e => {
+        const playOnInteraction = () => { bgVideo.play(); window.removeEventListener('click', playOnInteraction); };
+        window.addEventListener('click', playOnInteraction);
+    });
+});
+
+const socket = io();
+async function updateTicker(){
+    try{
+        const r = await fetch("/api/get_data");
+        const d = await r.json();
+        if(!d.companies) return;
+        const html = d.companies.map(c=>{
+            const prev = c.history && c.history.length > 1 ? c.history[c.history.length - 2] : c.price;
+            const up = c.price >= prev;
+            const diff = prev !== 0 ? (((c.price-prev)/prev)*100).toFixed(2) : "0.00";
+            return `<div class="ticker-item">${c.name} <span style="color:${up?'var(--green)':'var(--red)'}">${c.price} (${diff}%) ${up?'▲':'▼'}</span></div>`;
+        }).join("");
+        document.getElementById("ticker").innerHTML = html + html;
+    }catch(e){ console.error("Ticker error", e); }
+}
+socket.on("data_update", updateTicker);
+updateTicker();
+</script>
+
+</body>
+</html>

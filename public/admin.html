@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><title>TRADE-X | ADMIN</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <link rel="shortcut icon" href="logo.ico" type="image/x-icon">
+    <style>
+        :root { --accent: #2563eb; --side-bg: #0f172a; }
+        body { background: #f1f5f9; font-family: 'Inter', sans-serif; height: 100vh; overflow: hidden; display: flex; }
+        .sidebar { width: 280px; background: var(--side-bg); color: white; padding: 25px; display: flex; flex-direction: column; justify-content: space-between; }
+        .nav-link-custom { color: #94a3b8; padding: 12px; border-radius: 12px; cursor: pointer; border: none; background: transparent; text-align: left; width: 100%; margin-bottom: 5px; }
+        .nav-link-custom.active { background: var(--accent); color: white; }
+        .content { flex: 1; padding: 30px; overflow-y: auto; }
+        .chart-card { background: white; border-radius: 20px; padding: 30px; height: 400px; margin-bottom: 20px; border: 1px solid #e2e8f0; position: relative; }
+        #modalOverlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); z-index: 9999; display: none; align-items: center; justify-content: center; }
+        .modal-box { background: white; padding: 30px; border-radius: 20px; width: 550px; position: relative; }
+        .close-btn { position: absolute; top: 15px; right: 20px; font-size: 1.5rem; cursor: pointer; color: #64748b; border: none; background: none; font-weight: bold; }
+        .screen-btn { height: 60px; font-weight: bold; transition: 0.3s; border-radius: 12px; font-size: 0.85rem; }
+        .round-row { background: white; padding: 15px; border-radius: 15px; border: 1px solid #e2e8f0; margin-bottom: 10px; display: flex; align-items: center; justify-content: space-between; }
+        .content {
+    position: relative;
+    padding-bottom: 70px; /* space for footer */
+}
+
+.app-footer {
+    position: fixed;
+    bottom: 0;
+    left: 280px; /* sidebar width */
+    right: 0;
+    height: 60px;
+
+    background: white;
+    border-top: 1px solid #e2e8f0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 100;
+}
+
+.app-footer .footer-inner {
+    width: 100%;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.app-footer .footer-center {
+    font-size: 0.9rem;
+    color: #475569;
+    font-weight: 500;
+}
+
+.app-footer .footer-right {
+    position: absolute;
+    right: 30px;
+}
+
+.app-footer img {
+    height: 28px;
+    cursor: pointer;
+}
+
+    </style>
+</head>
+<body>
+    <div id="modalOverlay" onclick="if(event.target.id === 'modalOverlay') closeM()">
+        <div class="modal-box" onclick="event.stopPropagation()">
+            <button class="close-btn" onclick="closeM()">×</button>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+    <div class="sidebar">
+        <div>
+            <h4 class="fw-bold mb-5">TRADE-X ADMIN</h4>
+            <nav>
+                <button class="nav-link-custom active" onclick="tab('dash', this)">Dashboard</button>
+                <button class="nav-link-custom" onclick="tab('rounds', this)">Market Rounds</button>
+                <button class="nav-link-custom" onclick="tab('teams', this)">Team Portfolios</button>
+                <button class="nav-link-custom" onclick="tab('screens', this)">Screen Management</button>
+                <button class="nav-link-custom" onclick="tab('audio', this)">Audio Control</button>
+            </nav>
+        </div>
+        <div class="bg-dark p-3 rounded-4">
+            <div class="text-white small mb-2 opacity-50">Quick Actions</div>
+            <div class="row g-2">
+                <div class="col-6"><button onclick="pushQuick('market_line', 0)" class="btn btn-primary btn-sm w-100 fw-bold">GO LIVE</button></div>
+                <div class="col-6"><button onclick="pushQuick('market_line', 1)" class="btn btn-warning btn-sm w-100 fw-bold">STANDBY</button></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+        <div id="t-dash">
+            <div class="row g-3">
+                <div class="col-6"><div class="chart-card"><h6>Stock Index</h6><canvas id="cChart"></canvas></div></div>
+                <div class="col-6"><div class="chart-card"><h6>Wealth History</h6><canvas id="wChart"></canvas></div></div>
+                <div class="col-12"><div class="chart-card"><h6>Asset Summary</h6><canvas id="bChart"></canvas></div></div>
+            </div>
+        </div>
+
+        <div id="t-screens" class="d-none">
+            <h4 class="mb-4">Live Screen Controller</h4>
+            
+            <h6 class="text-muted border-bottom pb-2">Primary Views</h6>
+            <div class="row g-3 mb-4">
+                <div class="col-md-3"><button onclick="push('market_line', 0)" class="btn btn-outline-primary w-100 screen-btn">📈 Trends</button></div>
+                <div class="col-md-3"><button onclick="push('wealth_bar', 0)" class="btn btn-outline-primary w-100 screen-btn">📊 Wealth Bars</button></div>
+                <div class="col-md-3"><button onclick="push('wealth_line', 0)" class="btn btn-outline-primary w-100 screen-btn">📉 Wealth History</button></div>
+                <div class="col-md-3"><button onclick="push('market_line', 1)" class="btn btn-outline-warning w-100 screen-btn">⏸ Standby</button></div>
+            </div>
+
+            <h6 class="text-muted border-bottom pb-2">Intro & Setup</h6>
+            <div class="row g-3 mb-4">
+                <div class="col-md-3"><button onclick="push('screen/rules.html', 0)" class="btn btn-outline-secondary w-100 screen-btn">📝 Rules</button></div>
+                <div class="col-md-3"><button onclick="push('screen/Purchase.html', 0)" class="btn btn-outline-info w-100 screen-btn">🏁 Purchase</button></div>
+                <div class="col-md-3"><button onclick="push('screen/AP_QR.html', 0)" class="btn btn-outline-info w-100 screen-btn">📷 Round QR</button></div>
+                <div class="col-md-3"><button onclick="push('screen/flash.html', 0)" class="btn btn-outline-info w-100 screen-btn">🎡 Flash Spinner</button></div>
+            </div>
+
+            <h6 class="text-muted border-bottom pb-2">Market Rounds Management</h6>
+            <div class="round-row"><span class="fw-bold">Round 1:</span><div class="d-flex gap-2"><button onclick="push('screen/round11.html', 0)" class="btn btn-dark px-4 py-2 rounded-3">Intro</button><button onclick="push('screen/round12.html', 0)" class="btn btn-dark px-4 py-2 rounded-3">Rules</button></div></div>
+            <div class="round-row"><span class="fw-bold">Round 2:</span><div class="d-flex gap-2"><button onclick="push('screen/round21.html', 0)" class="btn btn-dark px-4 py-2 rounded-3">Intro</button><button onclick="push('screen/round22.html', 0)" class="btn btn-dark px-4 py-2 rounded-3">Rules</button></div></div>
+            <div class="round-row"><span class="fw-bold">Round 3:</span><div class="d-flex gap-2"><button onclick="push('screen/round31.html', 0)" class="btn btn-dark px-4 py-2 rounded-3">Intro</button><button onclick="push('screen/round32.html', 0)" class="btn btn-dark px-4 py-2 rounded-3">Rules</button><button onclick="push('screen/round33.html', 0)" class="btn btn-dark px-4 py-2 rounded-3">Game</button></div></div>
+            <div class="round-row"><span class="fw-bold">Round 4:</span><div class="d-flex gap-2"><button onclick="push('screen/round41.html', 0)" class="btn btn-dark px-4 py-2 rounded-3">Intro</button><button onclick="push('screen/round42.html', 0)" class="btn btn-dark px-4 py-2 rounded-3">Rules</button><button onclick="push('screen/round43.html', 0)" class="btn btn-dark px-4 py-2 rounded-3">Game</button></div></div>
+            <div class="round-row"><span class="fw-bold">Round 5:</span><div class="d-flex gap-2"><button onclick="push('screen/round51.html', 0)" class="btn btn-dark px-4 py-2 rounded-3">Intro</button><button onclick="push('screen/round52.html', 0)" class="btn btn-dark px-4 py-2 rounded-3">Rules</button><button onclick="push('screen/round53.html', 0)" class="btn btn-dark px-4 py-2 rounded-3">Game</button></div></div>
+        </div>
+
+        <div id="t-audio" class="d-none">
+    <div class="bg-white p-4 rounded-4 border shadow-sm">
+        <h4 class="mb-4">Audio Control Center</h4>
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <label class="form-label fw-bold">Select Track (MP3/MP4)</label>
+                <select id="songSel" class="form-select mb-3"></select>
+                
+                <div class="mb-3">
+                    <input type="range" class="form-range" id="seekSlider" value="0" min="0" step="1" oninput="seekAudio()">
+                    <div class="d-flex justify-content-between small text-muted">
+                        <span id="currentTime">0:00</span>
+                        <span id="durationTime">0:00</span>
+                    </div>
+                </div>
+
+                <div class="btn-group w-100">
+                    <button id="playBtn" class="btn btn-primary" onclick="togglePlay()">Play</button>
+                    <button class="btn btn-secondary" onclick="stopAudio()">Stop</button>
+                    <button id="loopBtn" class="btn btn-outline-info" onclick="toggleLoop()">Loop: OFF</button>
+                    <button id="muteBtn" class="btn btn-danger" onclick="toggleMute()">Mute</button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label fw-bold">Master Volume</label>
+                <input type="range" class="form-range" id="volRange" min="0" max="1" step="0.1" value="0.5" oninput="changeVol(this.value)">
+                <div class="text-center mt-2" id="volLabel">Volume: 50%</div>
+            </div>
+        </div>
+    <div id="nowPlaying" class="alert alert-info mt-4 d-none">
+    <div class="d-flex align-items-center justify-content-between">
+        <span>Now Playing: <span id="currentTrack" class="fw-bold">None</span></span>
+        <span id="currentTime" class="badge bg-dark">0:00</span>
+    </div>
+</div>
+    </div>
+</div>
+
+        <div id="t-rounds" class="d-none"><h4 class="mb-4">Market Data Input</h4><div id="rGrid" class="row g-3"></div></div>
+
+        <div id="t-teams" class="d-none">
+            <div class="d-flex justify-content-between mb-4"><h4>Team Management</h4><button onclick="addT()" class="btn btn-success fw-bold">+ Add Team</button></div>
+            <div id="teamGrid" class="row g-3"></div>
+        </div>
+    </div>
+    <footer class="app-footer">
+    <div class="footer-inner">
+        <div class="footer-center">
+            Aarav Shah | <a href="mailto:aaravprogrammers@gmail.com">aaravprogrammers@gmail.com</a>
+        </div>
+        <div class="footer-right">
+            <a href="https://aaravshah1311.is-great.net" target="_blank" rel="noopener">
+               @
+            </a>
+        </div>
+    </div>
+</footer>
+
+    <script>
+       const socket = io(); 
+let gData = {}, charts = {}, curAucTab = 'lock', activeModalRound = null;
+let audioPlayer = new Audio(); 
+let isMuted = false;
+let isLooping = false;
+
+// --- INITIALIZATION & DATA ---
+async function refresh() { 
+    const r = await fetch('/api/get_data'); 
+    gData = await r.json(); 
+    render(); 
+    updCharts(); 
+}
+
+async function call(a, d) { 
+    await fetch('/api/admin/action', { 
+        method: 'POST', 
+        headers: {'Content-Type': 'application/json'}, 
+        body: JSON.stringify({action:a, ...d}) 
+    }); 
+}
+
+async function loadSongs() {
+    try { 
+        const r = await fetch('/api/get_songs'); 
+        const songs = await r.json();
+        document.getElementById('songSel').innerHTML = songs.map(s => `<option value="${s}">${s}</option>`).join('');
+    } catch (e) { 
+        console.error("Songs folder not found or empty."); 
+    }
+}
+
+// --- AUDIO CONTROLLER LOGIC ---
+function formatTime(secs) {
+    const mins = Math.floor(secs / 60);
+    const s = Math.floor(secs % 60);
+    return `${mins}:${s < 10 ? '0' : ''}${s}`;
+}
+
+function toggleLoop() {
+    isLooping = !isLooping;
+    audioPlayer.loop = isLooping;
+    const btn = document.getElementById('loopBtn');
+    btn.innerText = isLooping ? "Loop: ON" : "Loop: OFF";
+    btn.classList.toggle('btn-info', isLooping);
+    btn.classList.toggle('btn-outline-info', !isLooping);
+}
+
+function seekAudio() {
+    const slider = document.getElementById('seekSlider');
+    audioPlayer.currentTime = slider.value;
+}
+
+function changeVol(v) { 
+    audioPlayer.volume = v; 
+    document.getElementById('volLabel').innerText = `Volume: ${Math.round(v * 100)}%`; 
+}
+
+function toggleMute() {
+    isMuted = !isMuted;
+    audioPlayer.muted = isMuted;
+    const muteBtn = document.getElementById('muteBtn');
+    muteBtn.innerText = isMuted ? "Unmute" : "Mute";
+    muteBtn.classList.toggle('btn-danger', !isMuted);
+    muteBtn.classList.toggle('btn-success', isMuted);
+}
+
+audioPlayer.ontimeupdate = () => {
+    const slider = document.getElementById('seekSlider');
+    const current = document.getElementById('currentTime');
+    const duration = document.getElementById('durationTime');
+    if (!isNaN(audioPlayer.duration)) {
+        slider.max = audioPlayer.duration;
+        slider.value = audioPlayer.currentTime;
+        current.innerText = formatTime(audioPlayer.currentTime);
+        duration.innerText = formatTime(audioPlayer.duration);
+    }
+};
+
+function togglePlay() {
+    const songSelect = document.getElementById('songSel');
+    const playBtn = document.getElementById('playBtn');
+    const selectedSong = songSelect.value;
+    if (!selectedSong) return;
+
+    // Handles MP3, MP4, and other browser-supported formats
+    if (audioPlayer.src.includes(encodeURIComponent(selectedSong))) {
+        if (audioPlayer.paused) {
+            audioPlayer.play();
+            playBtn.innerText = "Pause";
+            playBtn.classList.replace('btn-primary', 'btn-warning');
+        } else {
+            audioPlayer.pause();
+            playBtn.innerText = "Resume";
+            playBtn.classList.replace('btn-warning', 'btn-primary');
+        }
+    } else {
+        audioPlayer.src = `/song/${selectedSong}`;
+        audioPlayer.play();
+        playBtn.innerText = "Pause";
+        playBtn.classList.replace('btn-primary', 'btn-warning');
+        document.getElementById('nowPlaying').classList.remove('d-none');
+        document.getElementById('currentTrack').innerText = selectedSong;
+    }
+}
+
+function stopAudio() {
+    audioPlayer.pause();
+    audioPlayer.currentTime = 0;
+    const playBtn = document.getElementById('playBtn');
+    playBtn.innerText = "Play";
+    playBtn.className = "btn btn-primary";
+    document.getElementById('nowPlaying').classList.add('d-none');
+}
+
+audioPlayer.onended = () => { if(!isLooping) stopAudio(); };
+
+// --- UI RENDERING ---
+function render() {
+    document.getElementById('rGrid').innerHTML = [1,2,3,4,5].map(r => `<div class="col-md-4"><button class="btn btn-white border shadow-sm w-100 py-4 fw-bold rounded-4" onclick="openR(${r})">ROUND ${r}</button></div>`).join('');
+    document.getElementById('teamGrid').innerHTML = gData.teams.map(t => `<div class="col-md-6"><div class="bg-white p-3 rounded-4 border shadow-sm"><div class="d-flex justify-content-between align-items-center"><div><h6 class="m-0 fw-bold">${t.name}</h6><div class="text-muted small">Purse: ${Math.floor(t.purse)} | Wealth: ${Math.floor(t.wealth)}</div></div><div class="btn-group"><button class="btn btn-sm btn-outline-danger" onclick="call('sell_all',{team_id:${t.id}})">Sell All</button><button class="btn btn-sm btn-outline-primary" onclick="openP(${t.id})">Edit</button></div></div></div></div>`).join('');
+    if(document.getElementById('modalOverlay').style.display === 'flex' && activeModalRound === 5) openR(5, true); 
+}
+
+function openR(r, isUpdate = false) {
+    activeModalRound = r;
+    let b = ''; 
+    if(r === 5) {
+        b = `<h4 class="mb-3">Round 5: Auction</h4><div class="btn-group w-100 mb-3"><button class="btn ${curAucTab==='lock'?'btn-dark':'btn-outline-dark'}" onclick="aucT('lock',5)">Bids</button><button class="btn ${curAucTab==='res'?'btn-primary':'btn-outline-primary'}" onclick="aucT('res',5)">Results</button></div>
+        <div id="auc-lock" style="display:${curAucTab==='lock'?'block':'none'}">${gData.teams.map(t=>`<div class="d-flex justify-content-between align-items-center mb-2"><span>${t.name} (P: ${Math.floor(t.purse)})</span><input type="number" id="bid_${t.id}" class="form-control w-25" min="0" max="${t.purse}" placeholder="0 - ${Math.floor(t.purse)}"></div>`).join('')}<button class="btn btn-primary w-100 mt-2" onclick="lockB()">LOCK BIDS</button></div>
+        <div id="auc-res" style="display:${curAucTab==='res'?'block':'none'}">${gData.teams.map(t=>`<div class="d-flex justify-content-between align-items-center mb-2"><span>${t.name} (${t.last_bid})</span><div class="btn-group"><button class="btn btn-sm btn-success" onclick="call('auction_resolve',{team_id:${t.id},status:'correct'})">WIN</button><button class="btn btn-sm btn-danger" onclick="call('auction_resolve',{team_id:${t.id},status:'wrong'})">LOSS</button></div></div>`).join('')}</div>`;
+    } else { 
+        b = `<h5 class="mb-3">Update Round ${r} Prices</h5>${gData.companies.map(c=>`<div class="mb-2 d-flex justify-content-between align-items-center"><span>${c.name} (${c.price})</span><input type="number" id="d_${c.id}" class="form-control w-25"></div>`).join('')}<button class="btn btn-primary w-100 mt-3" onclick="subR(${r})">SYNC</button>`; 
+    }
+    document.getElementById('modalContent').innerHTML = b; 
+    if(!isUpdate) document.getElementById('modalOverlay').style.display='flex';
+}
+
+function openP(tid) {
+    activeModalRound = null; const t = gData.teams.find(x=>x.id==tid);
+    let b = `<h5 class="mb-3">Portfolio: ${t.name}</h5><div class="mb-3 p-2 bg-light rounded text-center fw-bold">Total Wealth: ${Math.floor(t.wealth)}</div>`;
+    b += gData.companies.map((c,i)=>`<div class="mb-2 d-flex justify-content-between align-items-center"><span>${c.name} <strong>(${c.price})</strong></span><input type="number" id="st_${i}" class="form-control w-25" value="${t.stocks[i]||0}" min="0" oninput="validateWealth(${tid})"></div>`).join('');
+    b += `<div id="wealthAlert" class="text-danger small mt-2 fw-bold text-center"></div><button id="savePBtn" class="btn btn-primary w-100 mt-3 py-2 fw-bold" onclick="saveP(${tid})">SAVE CHANGES</button>`;
+    document.getElementById('modalContent').innerHTML = b; 
+    document.getElementById('modalOverlay').style.display='flex';
+}
+
+function validateWealth(tid) {
+    const t = gData.teams.find(x=>x.id==tid); 
+    let nV = 0; 
+    gData.companies.forEach((c, i) => nV += ((parseInt(document.getElementById('st_'+i).value) || 0) * c.price));
+    const btn = document.getElementById('savePBtn'), al = document.getElementById('wealthAlert');
+    if (nV > t.wealth) { btn.disabled = true; al.innerText = "Exceeds wealth!"; } else { btn.disabled = false; al.innerText = ""; }
+}
+
+// --- OPERATIONS ---
+async function lockB() { 
+    const bids = {}; let inv = false;
+    gData.teams.forEach(t => { 
+        const b = parseFloat(document.getElementById('bid_'+t.id).value) || 0; 
+        if (b < 0 || b > t.purse) inv = true; 
+        bids[t.id] = b; 
+    }); 
+    if (inv) return alert("Invalid bids");
+    curAucTab='res'; await call('auction_lock_bids', {bids}); 
+}
+
+function subR(rid) { const delta = {}; gData.companies.forEach(c => delta[c.id] = document.getElementById('d_'+c.id).value || 0); call('update_round', {delta, round_id: rid}); closeM(); }
+function saveP(tid) { const stocks = gData.companies.map((_,i)=>document.getElementById('st_'+i).value||0); call('update_portfolio', {team_id:tid, stocks}); closeM(); }
+function push(v, ov) { call('sync_screen', {view: v, overlay: ov}); }
+function pushQuick(v, ov) { call('sync_screen', {view: v, overlay: ov}); }
+function addT() { const n = prompt("Team Name:"); if(n) call('add_team', {team_name: n}); }
+function aucT(t,r) { curAucTab=t; openR(r); }
+function closeM() { document.getElementById('modalOverlay').style.display='none'; activeModalRound = null; }
+function tab(id, b) { document.querySelectorAll('[id^="t-"]').forEach(x=>x.classList.add('d-none')); document.getElementById('t-'+id).classList.remove('d-none'); document.querySelectorAll('.nav-link-custom').forEach(l=>l.classList.remove('active')); b.classList.add('active'); }
+
+// --- CHARTS ---
+function updCharts() {
+    const opt = { maintainAspectRatio:false, animation:false, plugins:{ legend:{ display:true, position:'top', labels:{ boxWidth:12, font:{size:11} } } }, scales: { y: { beginAtZero: true } } };
+    if(charts.l) charts.l.destroy(); 
+    charts.l = new Chart(document.getElementById('cChart'), {type:'line', data:{labels:gData.companies[0].history.map((_,i)=>"R"+i), datasets:gData.companies.map(c=>({label:c.name, data:c.history, borderColor:c.color, tension:0.3}))}, options:opt});
+    
+    if(charts.w) charts.w.destroy(); 
+    charts.w = new Chart(document.getElementById('wChart'), {type:'line', data:{labels:gData.companies[0].history.map((_,i)=>"R"+i), datasets:gData.teams.map(t=>({label:t.name, data:t.wealth_history, tension:0.3}))}, options:opt});
+    
+    const ds = gData.companies.map((c,i)=>({label:c.name, data:gData.teams.map(t=>(t.stocks[i]||0)*c.price), backgroundColor:c.color, stack:'S'})); 
+    ds.push({label:'Purse', data:gData.teams.map(t=>t.purse), backgroundColor:'#2563eb', stack:'S'});
+    
+    if(charts.b) charts.b.destroy(); 
+    charts.b = new Chart(document.getElementById('bChart'), {type:'bar', data:{labels:gData.teams.map(t=>t.name), datasets:ds}, options:{...opt, scales:{x:{stacked:true}, y:{stacked:true}}}});
+}
+
+socket.on('data_update', refresh); 
+window.onload = () => { refresh(); loadSongs(); };
+    </script>
+</body>
+</html>

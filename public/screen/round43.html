@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRADE-X 2.0 | Round 4 Investigation</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@500;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <script src="/socket.io/socket.io.js"></script>
+
+    <style>
+                .severity-badge { font-family: 'JetBrains Mono'; padding: 6px 16px; border-radius: 10px; text-transform: uppercase; font-weight: 800; }
+        .hard { background: var(--red); }
+        .medium { background: var(--primary); }
+        .easy { background: var(--green); color: #000; }
+        
+        :root {
+            --primary: #2563eb;
+            --bg: #020617;
+            --glass: rgba(15, 23, 42, .75);
+            --border: rgba(255, 255, 255, .12);
+            --text: #f8fafc;
+            --green: #10b981;
+            --red: #ef4444;
+            --gold: #fbbf24;
+        }
+
+        html, body { height: 100%; margin: 0; overflow: hidden; font-family: Inter, sans-serif; color: var(--text); }
+
+        /* ===== BACKGROUND & FIXED UI ===== */
+        #bg-video-container { position: fixed; inset: 0; z-index: -100; background: var(--bg); }
+        #bg-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+        .video-overlay { position: fixed; inset: 0; background: rgba(2, 6, 23, .6); z-index: -90; }
+
+        .header, .ticker-wrap { position: fixed; width: 100%; height: 8vh; z-index: 2000; }
+        .header { 
+            top: 0; display: flex; align-items: center; justify-content: space-between; padding: 0 40px;
+            background: var(--glass); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border);
+            border-radius: 0 0 28px 28px;
+        }
+        .header-logo { font-size: 2.3rem; font-weight: 900; background: linear-gradient(170deg, #00ff00 50%, #ff0000 50%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        /* ===== MAIN CONTENT ===== */
+        .main { height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px; position: relative; z-index: 10; }
+        .rules-title { font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 800; text-transform: uppercase; margin-bottom: 40px; }
+
+        .company-grid { display: flex; flex-direction: column; gap: 25px; align-items: center; width: 100%; max-width: 1100px; }
+        .grid-row { display: flex; gap: 25px; justify-content: center; width: 100%; }
+        .company-box {
+    flex: 1; max-width: 240px; background: var(--glass); border: 1px solid var(--border);
+    border-radius: 24px; padding: 40px 20px; text-align: center; cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); backdrop-filter: blur(20px);
+}
+
+.company-box:hover:not(.disabled) { transform: translateY(-12px); border-color: var(--primary); background: rgba(37, 99, 235, 0.15); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+.company-box.disabled { opacity: 0.15; filter: grayscale(1); cursor: not-allowed; }
+
+.box-number {
+    width: 50px; height: 50px; background: rgba(37,99,235,.15); border: 1px solid var(--primary);
+    border-radius: 14px; display: flex; align-items: center; justify-content: center;
+    color: var(--primary); font-family: 'JetBrains Mono'; font-weight: 800; margin: 0 auto 20px;
+}
+
+.box-name { font-weight: 800; text-transform: uppercase; font-size: 1.1rem; }
+        /* ===== DRAMATIC MODAL SYSTEM ===== */
+        .shockwave {
+            position: fixed; border: 2px solid var(--primary); border-radius: 50%;
+            pointer-events: none; z-index: 9999; animation: ripple 0.8s cubic-bezier(0, 0, 0.2, 1) forwards;
+        }
+        @keyframes ripple {
+            0% { width: 0; height: 0; opacity: 1; transform: translate(-50%, -50%); }
+            100% { width: 500px; height: 500px; opacity: 0; transform: translate(-50%, -50%); border-width: 0; }
+        }
+
+        #qText {
+    /* 1.8rem = Min size | 4vw = Scaling speed | 3.2rem = Max size */
+    /* To increase size: Increase the 3.2rem and 4vw */
+    font-size: clamp(0.8rem, 2.7vw, 1.8rem); /* Increase 3rem to make question bigger */
+    font-weight: 700;
+    line-height: 1.4;
+    color: #f1f5f9;
+}
+
+
+        .modal-content {
+            background: radial-gradient(circle at center, rgba(15, 23, 42, 0.99) 0%, rgba(2, 6, 23, 1) 100%);
+            backdrop-filter: blur(30px); border: none; height: 84vh; width: 100vw;
+            position: fixed; top: 8vh; left: 0; transform: scale(0.1); opacity: 0;
+            transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.5s ease;
+        }
+        .modal.show .modal-content { transform: scale(1); opacity: 1; }
+
+        .reveal-container {
+            flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
+            padding: 0 10% 15vh 10%; transition: all 1s cubic-bezier(0.65, 0, 0.35, 1); height: 100%;
+        }
+        .reveal-container.active { justify-content: flex-start; padding-top: 8vh; }
+
+        #qComp {
+            font-size: clamp(2.5rem, 8.3vw, 5.5rem); font-weight: 900; color: var(--primary);
+            text-shadow: 0 0 40px rgba(37, 99, 235, 0.3); transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1); text-transform: uppercase;
+        }
+
+        #questionContent {
+            opacity: 0; transform: translateY(30px); visibility: hidden; width: 100%; max-width: 1100px;
+            transition: opacity 1s ease 0.5s, transform 1s ease 0.5s;
+        }
+        #questionContent.show { opacity: 1; transform: translateY(0); visibility: visible; }
+
+        /* Buttons & Options */
+        .option-btn {
+            background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border);
+            padding: 15px 25px; border-radius: 15px; color: white; font-size: 1.2rem; transition: 0.3s;
+        }
+        .option-btn:hover:not(:disabled) { background: rgba(37, 99, 235, 0.15); border-color: var(--primary); transform: translateY(-5px); }
+        .option-btn.selected { border: 2px solid var(--gold); background: rgba(251, 191, 36, 0.1); }
+        .option-btn.correct { background: var(--green) !important; color: #000 !important; font-weight: 800; }
+        .option-btn.wrong { background: var(--red) !important; }
+
+        .bottom-actions {
+            position: absolute; bottom: 0; width: 100%; height: 12vh;
+            display: flex; align-items: center; justify-content: center; gap: 20px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+        }
+        .btn-command { height: 60px; border-radius: 15px; font-weight: 800; text-transform: uppercase; border: none; transition: 0.3s; }
+        #btnReveal { background: var(--gold); color: #000; padding: 0 30px; box-shadow: 0 0 20px rgba(251, 191, 36, 0.3); }
+        .btn-close-protocol { background: rgba(255,255,255,0.05); color: #64748b; padding: 0 25px; border: 1px solid var(--border); }
+
+        /* TICKER */
+        .ticker-wrap { bottom: 0; background: #000; display: flex; align-items: center; overflow: hidden; border-top: 1px solid var(--border); }
+        .ticker-move { display: flex; white-space: nowrap; animation: ticker 38s linear infinite; }
+        @keyframes ticker { 0% { transform: translateX(0) } 100% { transform: translateX(-50%) } }
+        .ticker-item { padding: 0 2rem; font-family: 'JetBrains Mono'; font-weight: 800; }
+    </style>
+</head>
+
+<body>
+
+<div id="bg-video-container">
+    <video id="bg-video" autoplay muted loop playsinline><source src="vid.mp4" type="video/mp4"></video>
+</div>
+<div class="video-overlay"></div>
+
+<div class="header">
+    <div class="header-logo">TRADE-X 2.0</div>
+    <span class="badge bg-primary px-3 py-2 fw-800">PHASE: SECTOR INVESTIGATION</span>
+</div>
+
+<div class="main">
+    <h1 class="rules-title">Round 4 - Market Intel</h1>
+    <div class="company-grid">
+        <div class="grid-row" id="row-1"></div>
+        <div class="grid-row" id="row-2"></div>
+    </div>
+</div>
+
+<div class="ticker-wrap"><div id="ticker" class="ticker-move"></div></div>
+
+<div class="modal fade" id="qModal" tabindex="-1" data-bs-backdrop="static">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="reveal-container">
+                <div id="qComp">---</div>
+                <div id="qSev" class="severity-badge mt-2">---</div>
+
+                <div id="questionContent" style="display: none;" class="mt-5">
+                    <h3 id="qText" class="fw-800 text-center mb-4"></h3>
+                    <div id="qOpts" class="d-flex flex-wrap justify-content-center gap-3"></div>
+                    
+                    <div id="answerRevealArea" class="text-center mt-4" style="display:none; border: 1px dashed var(--green); padding: 15px; border-radius: 15px; background: rgba(16,185,129,0.05)">
+                        <!-- <span class="text-success fw-800 h4" id="correctAnswerText"></span> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="bottom-actions">
+                <button id="btnReveal" class="btn-command" onclick="revealAnswer()" style="display: none;">
+                    <i class="bi bi-eye-fill fs-4"></i>
+                </button>
+                <button class="btn-command btn-close-protocol" data-bs-dismiss="modal">
+                    <i class="bi bi-x-lg"></i> CLOSE
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    //const COMPANY_NAMES = ["AI ML", "Programming", "Current Affairs", "Aptitude", "Mythology", "Sports", "Entertainment"];
+    const COMPANY_NAMES = ["NeuroMind AI", "Syntax Systems", "GlobalPulse", "LogicSphere", "MythoLogic Corp", "SportsCorp", "CinePlix"];
+    let currentQuestion = null;
+
+    // Build Grid
+    const row1 = document.getElementById('row-1');
+    const row2 = document.getElementById('row-2');
+    COMPANY_NAMES.forEach((name, i) => {
+        const boxHtml = `
+            <div class="company-box" id="box-${i}" onclick="investigate(event, '${name}', ${i})">
+                <div class="box-number">${i+1}</div>
+                <div class="box-name">${name}</div>
+            </div>`;
+        if (i < 4) row1.innerHTML += boxHtml;
+        else row2.innerHTML += boxHtml;
+    });
+
+    async function investigate(event, name, index) {
+        const box = document.getElementById(`box-${index}`);
+        if(box.classList.contains('disabled')) return;
+
+        // 1. Shockwave Effect
+        const ripple = document.createElement('div');
+        ripple.className = 'shockwave';
+        ripple.style.left = `${event.clientX}px`;
+        ripple.style.top = `${event.clientY}px`;
+        document.body.appendChild(ripple);
+        setTimeout(() => ripple.remove(), 800);
+
+        try {
+            const res = await fetch(`/api/draw-company-luck?company=${encodeURIComponent(name)}`);
+            if (res.status === 404) return box.classList.add('disabled');
+            
+            currentQuestion = await res.json();
+            if(currentQuestion.remaining === 0) box.classList.add('disabled');
+
+            // Reset Modal UI
+            const modalElement = document.getElementById('qModal');
+            const modalContent = modalElement.querySelector('.modal-content');
+            const container = modalElement.querySelector('.reveal-container');
+            const qContent = document.getElementById('questionContent');
+            const btnReveal = document.getElementById('btnReveal');
+
+            modalContent.style.transformOrigin = `${event.clientX}px ${event.clientY}px`;
+            container.classList.remove('active');
+            qContent.classList.remove('show');
+            qContent.style.display = 'none';
+            btnReveal.style.display = 'none';
+            document.getElementById('answerRevealArea').style.display = 'none';
+
+            // Set Content
+            document.getElementById('qComp').innerText = currentQuestion.company;
+            document.getElementById('qSev').innerText = currentQuestion.severity;
+            document.getElementById('qSev').className = `severity-badge ${currentQuestion.severity.toLowerCase()}`;
+            document.getElementById('qText').innerText = currentQuestion.question;
+            
+            const optsContainer = document.getElementById('qOpts');
+            optsContainer.innerHTML = '';
+            
+            if(currentQuestion.type === "mcq") {
+                currentQuestion.options.forEach((opt, idx) => {
+                    const btn = document.createElement('button');
+                    btn.className = 'option-btn';
+                    btn.innerHTML = `<b>${idx+1}.</b> ${opt}`;
+                    btn.onclick = function() {
+                        document.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+                        this.classList.add('selected');
+                        btnReveal.style.display = 'block';
+                    };
+                    optsContainer.appendChild(btn);
+                });
+            } else {
+                btnReveal.style.display = 'block';
+            }
+
+            // Show Modal
+            new bootstrap.Modal(modalElement).show();
+
+            // 2. Dramatic Reveal Sequence
+            setTimeout(() => {
+                container.classList.add('active');
+                qContent.style.display = 'block';
+                setTimeout(() => { qContent.classList.add('show'); }, 150);
+            }, 2500);
+
+        } catch(e) { console.error(e); }
+    }
+
+    function revealAnswer() {
+        if (!currentQuestion) return;
+        document.getElementById('btnReveal').style.display = 'none';
+        
+        if (currentQuestion.type === "mcq") {
+            document.querySelectorAll('.option-btn').forEach(btn => {
+                btn.disabled = true;
+                const btnCleanText = btn.innerText.split('. ').slice(1).join('. ');
+                if (btnCleanText === currentQuestion.answer) btn.classList.add('correct');
+                else if (btn.classList.contains('selected')) btn.classList.add('wrong');
+            });
+        }
+        
+        document.getElementById('correctAnswerText').innerText = "Correct Answer: " + currentQuestion.answer;
+        document.getElementById('answerRevealArea').style.display = 'block';
+    }
+
+    // Ticker Logic
+    const socket = io();
+    async function updateTicker(){
+        try{
+            const r = await fetch("/api/get_data");
+            const d = await r.json();
+            const html = d.companies.map(c => {
+                const up = c.price >= (c.history?.[c.history.length-2] || c.price);
+                return `<div class="ticker-item">${c.name} <span style="color:${up?'var(--green)':'var(--red)'}">${c.price} ${up?'▲':'▼'}</span></div>`;
+            }).join("");
+            document.getElementById("ticker").innerHTML = html + html;
+        } catch(e){}
+    }
+    socket.on("data_update", updateTicker);
+    updateTicker();
+</script>
+
+</body>
+</html>

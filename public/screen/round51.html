@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TRADE-X 2.0 | Round 5</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@900&family=JetBrains+Mono:wght@800&display=swap" rel="stylesheet">
+<script src="/socket.io/socket.io.js"></script>
+
+<style>
+:root {
+    --primary: #2563eb;
+    --bg: #020617;
+    --accent: #00ff00;
+    --green: #10b981;
+    --red: #ef4444;
+    --gold: #fbbf24;
+    --border: rgba(255, 255, 255, 0.12);
+}
+
+body, html {
+    margin: 0; padding: 0; width: 100%; height: 100%;
+    overflow: hidden; font-family: 'Inter', sans-serif;
+    display: flex; flex-direction: column;
+}
+
+/* ===== VIDEO ===== */
+#bg-video-container { position: fixed; inset: 0; z-index: -100; background: var(--bg); }
+#bg-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.video-overlay { position: fixed; inset: 0; background: rgba(2, 6, 23, .5); z-index: -90; }
+
+/* ===== MAIN CONTENT ===== */
+.main-display { flex: 1; display: flex; align-items: center; justify-content: center; position: relative; }
+.round-container { text-align: center; z-index: 10; }
+
+.round-text {
+    font-size: clamp(5rem, 15vw, 12rem); font-weight: 900; text-transform: uppercase; color: #fff; margin: 0;
+    animation: roundReveal 1.2s cubic-bezier(0.23, 1, 0.32, 1) forwards, glowPulse 3s ease-in-out infinite 1.2s;
+    line-height: 1;
+}
+
+@keyframes roundReveal {
+    0% { transform: scale(0.5); opacity: 0; letter-spacing: -20px; filter: blur(10px); }
+    60% { transform: scale(1.1); opacity: 1; letter-spacing: 10px; filter: blur(0px); }
+    100% { transform: scale(1); opacity: 1; letter-spacing: 5px; }
+}
+
+@keyframes glowPulse {
+    0%, 100% { text-shadow: 0 0 20px rgba(0, 255, 0, 0.2); }
+    50% { text-shadow: 0 0 50px rgba(0, 255, 0, 0.6), 0 0 100px rgba(37, 99, 235, 0.4); }
+}
+
+.sub-text { font-family: 'JetBrains Mono', monospace; font-size: clamp(1rem, 2vw, 1.5rem); color: var(--accent); margin-top: 20px; letter-spacing: 5px; text-transform: uppercase; opacity: 0; animation: fadeIn 1s ease-out forwards 1.5s; }
+.divider { height: 4px; background: linear-gradient(90deg, transparent, var(--accent), transparent); margin: 10px auto; animation: lineGrow 1s ease-out forwards 1.3s; width: 0; }
+@keyframes lineGrow { 0% { width: 0; opacity: 0; } 100% { width: 300px; opacity: 1; } }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ===== TICKER SYSTEM ===== */
+.ticker-wrap { height: 8vh; background: #000; display: flex; align-items: center; overflow: hidden; border-top: 1px solid var(--border); z-index: 20; }
+.ticker-move { display: flex; white-space: nowrap; animation: tickerLoop 45s linear infinite; }
+.ticker-item { padding: 0 4rem; font-family: 'JetBrains Mono', monospace; font-weight: 800; font-size: 1.1rem; color: #fff; }
+
+.tradex-gradient {
+    background: linear-gradient(135deg, #00ff00 50%, #ff0000 50%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    font-weight: 900;
+}
+
+.white-stick { color: #ffffff; font-weight: 400; padding: 0 5px; }
+.text-info { color: #0dcaf0 !important; }
+
+@keyframes tickerLoop { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+.scanline { width: 100%; height: 100px; z-index: 11; background: linear-gradient(0deg, transparent, rgba(0, 255, 0, 0.05), transparent); position: absolute; animation: scanMove 4s linear infinite; }
+@keyframes scanMove { 0% { top: -100px; } 100% { top: 100%; } }
+</style>
+</head>
+<body>
+
+<div id="bg-video-container"><video id="bg-video" autoplay muted loop playsinline><source src="vid.mp4" type="video/mp4"></video></div>
+
+<audio id="intro-audio" src="intro.mp3" preload="auto"></audio>
+
+<div class="video-overlay"></div>
+<div class="scanline"></div>
+
+<div class="main-display">
+    <div class="round-container">
+        <div class="sub-text">PHASE INITIALIZED</div>
+        <div class="divider"></div>
+        <h1 class="round-text">Round 5</h1>
+        <div class="divider"></div>
+        <div class="sub-text">MARKET IS LIVE</div>
+    </div>
+</div>
+
+<div id="tickerComponent" class="ticker-wrap">
+    <div id="tickerContent" class="ticker-move">
+        </div>
+</div>
+
+<script>
+    // ==========================================
+    // CONFIGURATION SECTION
+    // ==========================================
+    const SHOW_TICKER = false; 
+    // ==========================================
+
+    /* MEDIA ASSETS */
+    const video = document.getElementById('bg-video');
+    const audio = document.getElementById('intro-audio');
+
+    // Function to handle media playback
+    const startMedia = () => {
+        video.play();
+        audio.play().catch(err => {
+            console.log("Audio autoplay blocked. Waiting for user interaction.");
+        });
+    };
+
+    // Attempt playback on load
+    window.addEventListener('load', startMedia);
+
+    // Fallback: Trigger audio on first user click (standard browser security)
+    document.addEventListener('click', () => {
+        if (audio.paused) {
+            audio.play();
+        }
+    }, { once: true });
+
+    // Ticker Initialization
+    if(!SHOW_TICKER) {
+        document.getElementById('tickerComponent').style.display = 'none';
+    } else {
+        const creditHtml = `
+            <div class="ticker-item">
+                <span class="tradex-gradient">TRADE-X 2.0</span> Digitalization System Developed By:
+                <span class="text-info">Aarav Shah</span> <span class="white-stick">|</span> <span class="text-info">aaravprogrammers@gmail.com</span>
+            </div>
+            <div class="ticker-item">Event Lead: <span class="text-info">Pratham Upadhyay</span></div>
+            <div class="ticker-item">Logistics Lead: <span class="text-info">Ansh Darji</span></div>
+        `;
+        document.getElementById('tickerContent').innerHTML = creditHtml + creditHtml;
+    }
+</script>
+
+</body>
+</html>

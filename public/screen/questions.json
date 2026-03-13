@@ -1,0 +1,3152 @@
+[
+  {
+    "id": 1,
+    "company": "LogicSphere",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "In a certain code, \"COMPUTER\" is written as \"RFUVQNPC\". How is \"MEDICINE\" written in that code?",
+    "options": [
+      "MFEDJJOE",
+      "EOJDEJFM",
+      "MFEJDJOE",
+      "EOJDJEFM"
+    ],
+    "opened": true,
+    "answer": "EOJDJEFM"
+  },
+  {
+    "id": 2,
+    "company": "LogicSphere",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "If ROSE is coded as TQUG, how is BLUE coded?",
+    "options": [
+      "CMVF",
+      "DNWG",
+      "DNVG",
+      "EOYG"
+    ],
+    "opened": true,
+    "answer": "DNWG"
+  },
+  {
+    "id": 3,
+    "company": "LogicSphere",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "If vowels in a word are replaced by the next vowel (A→E→I→O→U→A) and consonants remain the same, how will MUSIC be written?",
+    "options": [
+      "MASOC",
+      "MUSEC",
+      "MOSIC",
+      "MUSOC"
+    ],
+    "opened": true,
+    "answer": "MASOC"
+  },
+  {
+    "id": 4,
+    "company": "LogicSphere",
+    "severity": "Easy",
+    "type": "mcq",
+    "question": "Find the next number in the series: 2, 6, 12, 20, 30?",
+    "options": [
+      "36",
+      "40",
+      "42",
+      "44"
+    ],
+    "opened": true,
+    "answer": "42"
+  },
+  {
+    "id": 5,
+    "company": "LogicSphere",
+    "severity": "Easy",
+    "type": "mcq",
+    "question": "Find the next one in an alpha-numeric series A1, C4, F9, J16, ?",
+    "options": [
+      "N25",
+      "O25",
+      "P25",
+      "Q25"
+    ],
+    "opened": true,
+    "answer": "O25"
+  },
+  {
+    "id": 6,
+    "company": "LogicSphere",
+    "severity": "Easy",
+    "type": "mcq",
+    "question": "Find the next number: 3, 8, 18, 38, 78?",
+    "options": [
+      "58",
+      "158",
+      "13",
+      "138"
+    ],
+    "opened": true,
+    "answer": "158"
+  },
+  {
+    "id": 7,
+    "company": "LogicSphere",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "How many ways can the letters of the word \"APPLE\" be arranged?",
+    "options": [
+      "120",
+      "60",
+      "24",
+      "100"
+    ],
+    "opened": true,
+    "answer": "60"
+  },
+  {
+    "id": 8,
+    "company": "LogicSphere",
+    "severity": "Easy",
+    "type": "mcq",
+    "question": "Which of the following years was NOT a leap year?",
+    "options": [
+      "1200",
+      "1600",
+      "1900",
+      "2000"
+    ],
+    "opened": true,
+    "answer": "1900"
+  },
+  {
+    "id": 9,
+    "company": "LogicSphere",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "Six people (A, B, C, D, E, F) are sitting in a circle. B is between F and C. A is between E and D. F is to the left of D. Who is between A and F?",
+    "options": [
+      "E",
+      "C",
+      "D",
+      "None of these"
+    ],
+    "opened": true,
+    "answer": "D"
+  },
+  {
+    "id": 10,
+    "company": "LogicSphere",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "A cube is painted red on all faces and then cut into 64 small cubes of equal size. How many of the small cubes have no faces painted?",
+    "options": [
+      "4",
+      "8",
+      "16",
+      "0"
+    ],
+    "opened": true,
+    "answer": "8"
+  },
+  {
+    "id": 11,
+    "company": "LogicSphere",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "The HCF of two numbers is 11 and their LCM is 693. If one of the numbers is 77, find the other.",
+    "options": [
+      "66",
+      "99",
+      "110",
+      "121"
+    ],
+    "opened": true,
+    "answer": "99"
+  },
+  {
+    "id": 12,
+    "company": "LogicSphere",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "A can do a work in 15 days and B in 20 days. If they work together for 4 days, what fraction of the work is left?",
+    "options": [
+      "3/5",
+      "7/15",
+      "8/15",
+      "2/5"
+    ],
+    "opened": true,
+    "answer": "8/15"
+  },
+  {
+    "id": 13,
+    "company": "LogicSphere",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "Pointing to a photograph, a man said, \"I have no brother or sister, but that man's father is my father's son.\" Whose photograph was it?",
+    "options": [
+      "His son",
+      "His father",
+      "His nephew",
+      "Himself"
+    ],
+    "opened": true,
+    "answer": "His son"
+  },
+  {
+    "id": 14,
+    "company": "LogicSphere",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "A man walks 5 km East, then turns right and walks 12 km. How far is he from his starting point?",
+    "options": [
+      "7 km",
+      "13 km",
+      "17 km",
+      "12 km"
+    ],
+    "opened": true,
+    "answer": "13 km"
+  },
+  {
+    "id": 15,
+    "company": "LogicSphere",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "A man walks 10 m north, then 10 m east and finally 10 m south. How far is he from the starting point?",
+    "options": [
+      "0 m",
+      "5 m",
+      "10 m",
+      "20 m"
+    ],
+    "opened": true,
+    "answer": "10 m"
+  },
+  {
+    "id": 16,
+    "company": "LogicSphere",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "The present age of a father is three times the age of his son. After 12 years, the father’s age will be twice the son’s age. What is the present age of the son?",
+    "options": [
+      "8 years",
+      "10 years",
+      "12 years",
+      "14 years"
+    ],
+    "opened": true,
+    "answer": "12 years"
+  },
+  {
+    "id": 17,
+    "company": "LogicSphere",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "If 3rd December of a year is Sunday, what day will be the 3rd January of the next year?",
+    "options": [
+      "Tuesday",
+      "Wednesday",
+      "Monday",
+      "Sunday"
+    ],
+    "opened": true,
+    "answer": "Wednesday"
+  },
+  {
+    "id": 18,
+    "company": "LogicSphere",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "The ratio of milk to water in a mixture is 3:2. If 10 liters of water is added, the ratio becomes 3:4. What was the initial quantity of the mixture?",
+    "options": [
+      "20 L",
+      "25 L",
+      "30 L",
+      "35 L"
+    ],
+    "opened": true,
+    "answer": "25 L"
+  },
+  {
+    "id": 19,
+    "company": "LogicSphere",
+    "severity": "Easy",
+    "type": "mcq",
+    "question": "If 5 spiders can catch 5 flies in 5 minutes, how many spiders are needed to catch 100 flies in 100 minutes?",
+    "options": [
+      "100",
+      "20",
+      "5",
+      "10"
+    ],
+    "opened": true,
+    "answer": "5"
+  },
+  {
+    "id": 20,
+    "company": "LogicSphere",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "In a box, there are 8 red, 7 blue, and 6 green balls. One ball is picked up randomly. What is the probability that it is neither Red nor Green?",
+    "options": [
+      "1/3",
+      "8/21",
+      "7/21",
+      "9/21"
+    ],
+    "opened": true,
+    "answer": "1/3"
+  },
+  {
+    "id": 21,
+    "company": "LogicSphere",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "At a party, every person shakes hands with every other person exactly once. If there were 66 handshakes in total, how many people were at the party?",
+    "options": [
+      "11",
+      "12",
+      "13",
+      "66"
+    ],
+    "opened": true,
+    "answer": "12"
+  },
+  {
+    "id": 22,
+    "company": "LogicSphere",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "What is the unit digit of the sum 1! + 2! + 3! + .... + 100!?",
+    "options": [
+      "0",
+      "3",
+      "5",
+      "9"
+    ],
+    "opened": true,
+    "answer": "3"
+  },
+  {
+    "id": 23,
+    "company": "LogicSphere",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "In a family of 6, there are 2 married couples. D is the grandmother of A and mother of B. C is the wife of B and mother of F. F is the granddaughter of E. How is E related to B?",
+    "options": [
+      "Father",
+      "Brother",
+      "Son",
+      "Husband"
+    ],
+    "opened": true,
+    "answer": "Father"
+  },
+  {
+    "id": 24,
+    "company": "LogicSphere",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "You have three closed drawers. One contains a gold coin, and the other two are empty. You pick Drawer 1. The assistant (who knows where the coin is) opens Drawer 3 and shows it is empty. He then offers you the chance to switch to Drawer 2. What should you do?",
+    "options": [
+      "Stay; the probability is 1/2 for both.",
+      "Switch; the probability of Drawer 2 is 2/3.",
+      "It doesn't matter; the coin is in Drawer 1 or 2 equally.",
+      "Stay; the probability of Drawer 1 is 2/3."
+    ],
+    "opened": true,
+    "answer": "Switch; the probability of Drawer 2 is 2/3."
+  },
+  {
+    "id": 25,
+    "company": "LogicSphere",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "An escalator moves down at constant speed. A man walks down and takes 50 steps to reach the bottom. He runs up (at 5x his downward speed) and takes 125 steps to reach the top. How many steps are visible when stationary?",
+    "options": [
+      "80",
+      "100",
+      "90",
+      "75"
+    ],
+    "opened": true,
+    "answer": "100"
+  },
+  {
+    "id": 26,
+    "company": "LogicSphere",
+    "severity": "Easy",
+    "type": "mcq",
+    "question": "A jacket's price is increased by 25%. During a sale, the new price is then decreased by 25%. How does the final price compare to the original price?",
+    "options": [
+      "It remains the same.",
+      "It is 6.25% higher.",
+      "It is 6.25% lower.",
+      "It is 5% lower."
+    ],
+    "opened": true,
+    "answer": "It is 6.25% lower."
+  },
+  {
+    "id": 27,
+    "company": "LogicSphere",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "How many such pairs of letters are there in the word “DELICATE” such that each pair has the same number of letters between them in the word as in the English alphabet?",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "opened": true,
+    "answer": "3"
+  },
+  {
+    "id": 28,
+    "company": "LogicSphere",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "The average age of 30 students is 15 years. If the teacher’s age is included, the average becomes 16 years. What is the teacher’s age?",
+    "options": [
+      "40 years",
+      "45 years",
+      "46 years",
+      "50 years"
+    ],
+    "opened": true,
+    "answer": "46 years"
+  },
+  {
+    "id": 29,
+    "company": "LogicSphere",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "Two trains 120 m and 180 m long are running in opposite directions at 60 km/h and 40 km/h respectively. In how much time will they completely cross each other?",
+    "options": [
+      "8.4 sec",
+      "9 sec",
+      "10.8 sec",
+      "12 sec"
+    ],
+    "opened": true,
+    "answer": "10.8 sec"
+  },
+  {
+    "id": 30,
+    "company": "LogicSphere",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "Pipe A can fill a tank in 10 hours and pipe B in 15 hours. If A and B are opened on alternate hours starting with A, how long will it take to fill the tank?",
+    "options": [
+      "10 hours",
+      "11 hours",
+      "12 hours",
+      "13 hours"
+    ],
+    "opened": true,
+    "answer": "12 hours"
+  },
+  {
+    "id": 31,
+    "company": "GlobalPulse",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "The 62nd Munich Security Conference (MSC 2026) was held in which country in February 2026?",
+    "options": [
+      "France",
+      "India",
+      "Germany",
+      "USA"
+    ],
+    "opened": true,
+    "answer": "Germany"
+  },
+  {
+    "id": 32,
+    "company": "GlobalPulse",
+    "severity": "Easy",
+    "type": "mcq",
+    "question": "India and the European Union agreed on a long-term Free Trade Agreement after around 20 years of negotiations in January 2026. This FTA is popularly called:",
+    "options": [
+      "Asia-Europe Deal",
+      "Mother of all Deals",
+      "Indo-Pacific Pact",
+      "Mother of all Deals"
+    ],
+    "opened": true,
+    "answer": "Mother of all Deals"
+  },
+  {
+    "id": 33,
+    "company": "GlobalPulse",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "India’s foreign exchange reserves hit an all-time high of around $723.8 billion as of late January 2026, providing more than ___ months of import cover.",
+    "options": [
+      "6 months",
+      "9 months",
+      "11+ months",
+      "14 months"
+    ],
+    "opened": true,
+    "answer": "11+ months"
+  },
+  {
+    "id": 34,
+    "company": "GlobalPulse",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "India signed the Terms of Reference (ToR) for negotiations on a Free Trade Agreement with which group?",
+    "options": [
+      "ASEAN",
+      "SAARC",
+      "GCC",
+      "EU"
+    ],
+    "opened": true,
+    "answer": "GCC"
+  },
+  {
+    "id": 35,
+    "company": "GlobalPulse",
+    "severity": "Easy",
+    "type": "mcq",
+    "question": "India’s PLASTINDIA 2026 exhibition showcased innovation in which sector?",
+    "options": [
+      "Pharmaceutical",
+      "Plastics & sustainability",
+      "Renewable energy",
+      "Defence"
+    ],
+    "opened": true,
+    "answer": "Plastics & sustainability"
+  },
+  {
+    "id": 36,
+    "company": "GlobalPulse",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "India flagged off a mountaineering expedition to Mt Aconcagua in South America. This peak is located in:",
+    "options": [
+      "Peru",
+      "Argentina",
+      "Chile",
+      "Bolivia"
+    ],
+    "opened": true,
+    "answer": "Argentina"
+  },
+  {
+    "id": 37,
+    "company": "GlobalPulse",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "India and Seychelles launched the Joint Vision SESEL focusing on sustainability and security. The special economic package announced was worth:",
+    "options": [
+      "USD 100 million",
+      "USD 150 million",
+      "USD 175 million",
+      "USD 200 million"
+    ],
+    "opened": true,
+    "answer": "USD 175 million"
+  },
+  {
+    "id": 38,
+    "company": "GlobalPulse",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "International Day of Zero Tolerance for Female Genital Mutilation (FGM) was observed on:",
+    "options": [
+      "4 February",
+      "6 February",
+      "8 February",
+      "10 February"
+    ],
+    "opened": true,
+    "answer": "6 February"
+  },
+  {
+    "id": 39,
+    "company": "GlobalPulse",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "Devika Sihag won her maiden BWF Super 300 title at Thailand Masters 2026. She represents which sport?",
+    "options": [
+      "Tennis",
+      "Badminton",
+      "Table Tennis",
+      "Squash"
+    ],
+    "opened": true,
+    "answer": "Badminton"
+  },
+  {
+    "id": 40,
+    "company": "GlobalPulse",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "India’s VOC Port deployed a new Anti-Drone System to strengthen which kind of infrastructure security?",
+    "options": [
+      "Railway",
+      "Port/Maritime",
+      "Aviation",
+      "Power grid"
+    ],
+    "opened": true,
+    "answer": "Port/Maritime"
+  },
+  {
+    "id": 41,
+    "company": "GlobalPulse",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "India is now the world’s second-largest manufacturer in which category, as reported recently?",
+    "options": [
+      "Automobiles",
+      "Mobile phones",
+      "Pharmaceuticals",
+      "Textiles"
+    ],
+    "opened": true,
+    "answer": "Mobile phones"
+  },
+  {
+    "id": 42,
+    "company": "GlobalPulse",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "Which Indian civil aviation event, Asia’s largest, was held in Hyderabad in early 2026?",
+    "options": [
+      "Aero India",
+      "Wings India 2026",
+      "India Aviation Expo",
+      "SkyFest 2026"
+    ],
+    "opened": true,
+    "answer": "Wings India 2026"
+  },
+  {
+    "id": 43,
+    "company": "GlobalPulse",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "The ICMR began Phase I human clinical trials of an improved vaccine against which disease?",
+    "options": [
+      "Dengue",
+      "Kyasanur Forest Disease (KFD)",
+      "Chikungunya",
+      "Japanese Encephalitis"
+    ],
+    "opened": true,
+    "answer": "Kyasanur Forest Disease (KFD)"
+  },
+  {
+    "id": 44,
+    "company": "GlobalPulse",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "Pilloo AI, a voice-based accounting app for local languages, was launched in which Indian state?",
+    "options": [
+      "Tamil Nadu",
+      "Andhra Pradesh",
+      "Gujarat",
+      "Kerala"
+    ],
+    "opened": true,
+    "answer": "Gujarat"
+  },
+  {
+    "id": 45,
+    "company": "GlobalPulse",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "A new 2-nanometer semiconductor chip design event was inaugurated in Bengaluru by which minister?",
+    "options": [
+      "Nirmala Sitharaman",
+      "Amit Shah",
+      "Ashwini Vaishnaw",
+      "Rajeev Chandrasekhar"
+    ],
+    "opened": true,
+    "answer": "Ashwini Vaishnaw"
+  },
+  {
+    "id": 46,
+    "company": "GlobalPulse",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "India plans to launch the National Household Income Survey (NHIS) in 2026. This survey is intended to collect data on:",
+    "options": [
+      "Health & Nutrition",
+      "Employment only",
+      "Household income & expenditure",
+      "Agricultural yields"
+    ],
+    "opened": true,
+    "answer": "Household income & expenditure"
+  },
+  {
+    "id": 47,
+    "company": "GlobalPulse",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "Which organization launched a shore-based regional centre at Visakhapatnam for marine research in February 2026?",
+    "options": [
+      "ISRO",
+      "CSIR-NIO",
+      "ICMR",
+      "DRDO"
+    ],
+    "opened": true,
+    "answer": "CSIR-NIO"
+  },
+  {
+    "id": 48,
+    "company": "GlobalPulse",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "India’s Wings India 2026 event celebrated growth in domestic aviation. India’s aviation market is now the:",
+    "options": [
+      "5th largest",
+      "3rd largest",
+      "10th largest",
+      "7th largest"
+    ],
+    "opened": true,
+    "answer": "3rd largest"
+  },
+  {
+    "id": 49,
+    "company": "GlobalPulse",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "South Africa launched its first locally developed FMD vaccine, which targets:",
+    "options": [
+      "Poultry flu",
+      "Foot-and-mouth disease (FMD)",
+      "Swine fever",
+      "Bovine tuberculosis"
+    ],
+    "opened": true,
+    "answer": "Foot-and-mouth disease (FMD)"
+  },
+  {
+    "id": 50,
+    "company": "GlobalPulse",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "As of February 2026, China overtook which country as the world’s largest R&D spender?",
+    "options": [
+      "India",
+      "USA",
+      "Japan",
+      "Germany"
+    ],
+    "opened": true,
+    "answer": "USA"
+  },
+  {
+    "id": 51,
+    "company": "GlobalPulse",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "India & EU agreed a comprehensive Free Trade Agreement expected to eliminate tariffs on over what percentage of goods?",
+    "options": [
+      "60%",
+      "75%",
+      "90%+",
+      "100%"
+    ],
+    "opened": true,
+    "answer": "90%+"
+  },
+  {
+    "id": 52,
+    "company": "GlobalPulse",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "India’s foreign exchange reserves providing over 11 months of import cover signals:",
+    "options": [
+      "Low inflation",
+      "Strong external resilience",
+      "High unemployment",
+      "Increased trade deficit"
+    ],
+    "opened": true,
+    "answer": "Strong external resilience"
+  },
+  {
+    "id": 53,
+    "company": "GlobalPulse",
+    "severity": "Easy",
+    "type": "mcq",
+    "question": "The Indian mountaineering expedition to Mt Aconcagua was flagged off by which minister?",
+    "options": [
+      "Home Minister",
+      "Defence Minister",
+      "Railways Minister",
+      "Sports Minister"
+    ],
+    "opened": true,
+    "answer": "Sports Minister"
+  },
+  {
+    "id": 54,
+    "company": "GlobalPulse",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "The VOC Port anti-drone system project aims to improve which of the following?",
+    "options": [
+      "Coastal security & airspace monitoring",
+      "Wildlife protection",
+      "Urban traffic control",
+      "Railway logistics"
+    ],
+    "opened": true,
+    "answer": "Coastal security & airspace monitoring"
+  },
+  {
+    "id": 55,
+    "company": "GlobalPulse",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "The Padhai with AI program was launched in which Indian state to aid digital education?",
+    "options": [
+      "Himachal Pradesh",
+      "Uttarakhand",
+      "Haryana",
+      "Punjab"
+    ],
+    "opened": true,
+    "answer": "Haryana"
+  },
+  {
+    "id": 56,
+    "company": "GlobalPulse",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "India’s NSO National Household Income Survey (NHIS) is launching alongside what other major survey?",
+    "options": [
+      "Census Survey",
+      "Agriculture Production Survey",
+      "Annual Survey of Institutions for School Education (ASISSE)",
+      "Labour Force Survey"
+    ],
+    "opened": true,
+    "answer": "Labour Force Survey"
+  },
+  {
+    "id": 57,
+    "company": "GlobalPulse",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "Which Indian institute partnered with Seychelles for the Joint Vision SESEL, excluding space research?",
+    "options": [
+      "ISRO",
+      "ICMR",
+      "DRDO",
+      "CSIR"
+    ],
+    "opened": true,
+    "answer": "DRDO"
+  },
+  {
+    "id": 58,
+    "company": "GlobalPulse",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "India announced USD 175 million special economic package to Seychelles as part of Joint Vision SESEL. This package is aimed mainly at:",
+    "options": [
+      "Defence modernization",
+      "Sustainable development & maritime security",
+      "Space research",
+      "Education"
+    ],
+    "opened": true,
+    "answer": "Sustainable development & maritime security"
+  },
+  {
+    "id": 59,
+    "company": "GlobalPulse",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "Which important international day was observed on 6 February 2026?",
+    "options": [
+      "World Health Day",
+      "Zero Tolerance for FGM",
+      "World Environment Day",
+      "Human Rights Day"
+    ],
+    "opened": true,
+    "answer": "Zero Tolerance for FGM"
+  },
+  {
+    "id": 60,
+    "company": "GlobalPulse",
+    "severity": "Easy",
+    "type": "mcq",
+    "question": "India’s PLASTINDIA 2026 exhibition showcased which technological aspect?",
+    "options": [
+      "Artificial Intelligence",
+      "Plastics recycling & sustainability",
+      "Renewable energy storage",
+      "Defence weaponry"
+    ],
+    "opened": true,
+    "answer": "Plastics recycling & sustainability"
+  },
+  {
+    "id": 61,
+    "company": "CinePlix",
+    "severity": "Easy",
+    "type": "mcq",
+    "question": "Dangal is based on the life of which sportsperson?",
+    "options": [
+      "Mary Kom",
+      "Mahavir Singh Phogat",
+      "Sushil Kumar",
+      "Yogeshwar Dutt"
+    ],
+    "opened": true,
+    "answer": "Mahavir Singh Phogat"
+  },
+  {
+    "id": 62,
+    "company": "CinePlix",
+    "severity": "Easy",
+    "type": "mcq",
+    "question": "Which TV show features the character Tarika?",
+    "options": [
+      "FIR",
+      "CID",
+      "Taarak Mehta Ka Ooltah Chashmah",
+      "Comedy Circus"
+    ],
+    "opened": true,
+    "answer": "CID"
+  },
+  {
+    "id": 63,
+    "company": "CinePlix",
+    "severity": "Easy",
+    "type": "mcq",
+    "question": "Who played Iron Man in the Marvel Cinematic Universe?",
+    "options": [
+      "Chris Evans",
+      "Chris Hemsworth",
+      "Robert Downey Jr.",
+      "Mark Ruffalo"
+    ],
+    "opened": true,
+    "answer": "Robert Downey Jr."
+  },
+  {
+    "id": 64,
+    "company": "CinePlix",
+    "severity": "Easy",
+    "type": "mcq",
+    "question": "Which movie features the animated character Nemo?",
+    "options": [
+      "Shark Tale",
+      "Finding Nemo",
+      "Toy Story",
+      "Madagascar"
+    ],
+    "opened": true,
+    "answer": "Finding Nemo"
+  },
+  {
+    "id": 65,
+    "company": "CinePlix",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "Who sang the viral song “Why This Kolaveri Di”?",
+    "options": [
+      "Anirudh Ravichander",
+      "Dhanush",
+      "Vijay Yesudas",
+      "Sid Sriram"
+    ],
+    "opened": true,
+    "answer": "Dhanush"
+  },
+  {
+    "id": 66,
+    "company": "CinePlix",
+    "severity": "Easy",
+    "type": "mcq",
+    "question": " Hoh Rain Forest belongs to which movie series?",
+    "options": [
+      "Lord of the Rings",
+      "Harry Potter",
+      "Narnia",
+      "Twilight"
+    ],
+    "opened": true,
+    "answer": "Twilight"
+  },
+  {
+    "id": 67,
+    "company": "CinePlix",
+    "severity": "Easy",
+    "type": "mcq",
+    "question": "Who played the lead role in Gangubai Kathiawadi?",
+    "options": [
+      "Deepika Padukone",
+      "Alia Bhatt",
+      "Kangana Ranaut",
+      "Vidya Balan"
+    ],
+    "opened": true,
+    "answer": "Alia Bhatt"
+  },
+  {
+    "id": 68,
+    "company": "CinePlix",
+    "severity": "Easy",
+    "type": "mcq",
+    "question": "Which TV show is known for the dialogue “Daya, darwaza tod do”?",
+    "options": [
+      "FIR",
+      "Crime Patrol",
+      "CID",
+      "Savdhaan India"
+    ],
+    "opened": true,
+    "answer": "CID"
+  },
+  {
+    "id": 69,
+    "company": "CinePlix",
+    "severity": "Easy",
+    "type": "mcq",
+    "question": "The famous dialogue “Mogambo Khush Hua” is from which movie?",
+    "options": [
+      "Don",
+      "Deewar",
+      "Mr. India",
+      "Sholay"
+    ],
+    "opened": true,
+    "answer": "Mr. India"
+  },
+  {
+    "id": 70,
+    "company": "CinePlix",
+    "severity": "Easy",
+    "type": "mcq",
+    "question": "The original Ramayan series was re-telecast during which national event, breaking viewership records?",
+    "options": [
+      "Kargil War",
+      "2011 Cricket World Cup",
+      "COVID-19 Lockdown",
+      "Demonetization"
+    ],
+    "opened": true,
+    "answer": "COVID-19 Lockdown"
+  },
+  {
+    "id": 71,
+    "company": "CinePlix",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "Which Bollywood movie marked Aamir Khan’s debut as a producer?",
+    "options": [
+      "Taare Zameen Par",
+      "Lagaan",
+      "Rang De Basanti",
+      "Dil Chahta Hai"
+    ],
+    "opened": true,
+    "answer": "Lagaan"
+  },
+  {
+    "id": 72,
+    "company": "CinePlix",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "Who directed the movie Andhadhun?",
+    "options": [
+      "Anurag Kashyap",
+      "Sriram Raghavan",
+      "Shoojit Sircar",
+      "Rajkumar Hirani"
+    ],
+    "opened": true,
+    "answer": "Sriram Raghavan"
+  },
+  {
+    "id": 73,
+    "company": "CinePlix",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "The web series Panchayat is set in which village?",
+    "options": [
+      "Mirzapur",
+      "Phulera",
+      "Ballia",
+      "Sonbhadra"
+    ],
+    "opened": true,
+    "answer": "Phulera"
+  },
+  {
+    "id": 74,
+    "company": "CinePlix",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "Who played the Joker in The Dark Knight (2008)?",
+    "options": [
+      "Joaquin Phoenix",
+      "Heath Ledger",
+      "Jared Leto",
+      "Jack Nicholson"
+    ],
+    "opened": true,
+    "answer": "Heath Ledger"
+  },
+  {
+    "id": 75,
+    "company": "CinePlix",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "KGF is primarily set in which Indian state?",
+    "options": [
+      "Andhra Pradesh",
+      "Karnataka",
+      "Maharashtra",
+      "Tamil Nadu"
+    ],
+    "opened": true,
+    "answer": "Karnataka"
+  },
+  {
+    "id": 76,
+    "company": "CinePlix",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "Who composed the music for the movie Lagaan?",
+    "options": [
+      "Shankar-Ehsaan-Loy",
+      "A.R. Rahman",
+      "Anu Malik",
+      "Ilaiyaraaja"
+    ],
+    "opened": true,
+    "answer": "A.R. Rahman"
+  },
+  {
+    "id": 77,
+    "company": "CinePlix",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "Which OTT platform released the web series Sacred Games?",
+    "options": [
+      "Amazon Prime",
+      "Netflix",
+      "Hotstar",
+      "Sony LIV"
+    ],
+    "opened": true,
+    "answer": "Netflix"
+  },
+  {
+    "id": 78,
+    "company": "CinePlix",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "Ramayan originally aired on Doordarshan in which decade?",
+    "options": [
+      "1970s",
+      "1980s",
+      "1990s",
+      "2000s"
+    ],
+    "opened": true,
+    "answer": "1980s"
+  },
+  {
+    "id": 79,
+    "company": "CinePlix",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "Which Bollywood film trilogy is known as the “Mumbai Underworld Trilogy”?",
+    "options": [
+      "Satya - Company - D",
+      "Shootout series",
+      "Don series",
+      "Gangs of Wasseypur"
+    ],
+    "opened": true,
+    "answer": "Satya - Company - D"
+  },
+  {
+    "id": 80,
+    "company": "CinePlix",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "“Apna Time Aayega” is sung by which rapper?",
+    "options": [
+      "Raftaar",
+      "Badshah",
+      "Divine",
+      "Emiway"
+    ],
+    "opened": true,
+    "answer": "Divine"
+  },
+  {
+    "id": 81,
+    "company": "CinePlix",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "Which Indian movie was India’s first official entry to the Academy Awards?",
+    "options": [
+      "Mother India",
+      "Madhumati",
+      "Do Bigha Zamin",
+      "Pather Panchali"
+    ],
+    "opened": true,
+    "answer": "Mother India"
+  },
+  {
+    "id": 82,
+    "company": "CinePlix",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "In Interstellar (2014), what is the name of the AI robot that accompanies Cooper on the mission?",
+    "options": [
+      "KIPP",
+      "TARS",
+      "CASE",
+      "JARVIS"
+    ],
+    "opened": true,
+    "answer": "TARS"
+  },
+  {
+    "id": 83,
+    "company": "CinePlix",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "Who composed the music for both Baahubali and RRR?",
+    "options": [
+      "A.R. Rahman",
+      "Anirudh",
+      "M.M. Keeravaani",
+      "Ilaiyaraaja"
+    ],
+    "opened": true,
+    "answer": "M.M. Keeravaani"
+  },
+  {
+    "id": 84,
+    "company": "CinePlix",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "Which film won Best Picture at the Oscars (2020)?",
+    "options": [
+      "1917",
+      "Joker",
+      "Parasite",
+      "Once Upon a Time in Hollywood"
+    ],
+    "opened": true,
+    "answer": "Parasite"
+  },
+  {
+    "id": 85,
+    "company": "CinePlix",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "Which Indian film director has won the highest number of National Film Awards for Best Direction?",
+    "options": [
+      "Shyam Benegal",
+      "Satyajit Ray",
+      "Adoor Gopalakrishnan",
+      "Bimal Roy"
+    ],
+    "opened": true,
+    "answer": "Satyajit Ray"
+  },
+  {
+    "id": 86,
+    "company": "CinePlix",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "Who directed the Hollywood movie Inception?",
+    "options": [
+      "Steven Spielberg",
+      "Christopher Nolan",
+      "James Cameron",
+      "Denis Villeneuve"
+    ],
+    "opened": true,
+    "answer": "Christopher Nolan"
+  },
+  {
+    "id": 87,
+    "company": "CinePlix",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "The web series Asur blends crime with which theme?",
+    "options": [
+      "Psychology",
+      "Technology",
+      "Mythology",
+      "Sociology"
+    ],
+    "opened": true,
+    "answer": "Mythology"
+  },
+  {
+    "id": 88,
+    "company": "CinePlix",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "Which Indian actors starred in the Hollywood film Life of Pi?",
+    "options": [
+      "Irrfan Khan",
+      "Adil Hussain",
+      "Both A & B",
+      "None"
+    ],
+    "opened": true,
+    "answer": "Both A & B"
+  },
+  {
+    "id": 89,
+    "company": "CinePlix",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "Which Bollywood movie was inspired by the 26/11 Mumbai attacks?",
+    "options": [
+      "Black Friday",
+      "Phantom",
+      "The Attacks of 26/11",
+      "Hotel Mumbai"
+    ],
+    "opened": true,
+    "answer": "The Attacks of 26/11"
+  },
+  {
+    "id": 90,
+    "company": "CinePlix",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "In The Matrix (1999), what color pill does Neo take to learn the truth about the simulated reality?",
+    "options": [
+      "Blue",
+      "Purple",
+      "Red",
+      "Orange"
+    ],
+    "opened": true,
+    "answer": "Red"
+  },
+  {
+    "id": 91,
+    "company": "MythoLogic Corp",
+    "severity": "Easy",
+    "type": "mcq",
+    "question": "Who was the father of Lord Rama?",
+    "options": [
+      "Dasharatha",
+      "Janaka",
+      "Vasudeva",
+      "Shantanu"
+    ],
+    "opened": true,
+    "answer": "Dasharatha"
+  },
+  {
+    "id": 92,
+    "company": "MythoLogic Corp",
+    "severity": "Easy",
+    "type": "mcq",
+    "question": "In the Ramayana, Sita was the daughter of which king?",
+    "options": [
+      "Dasharatha",
+      "Janaka",
+      "Drupada",
+      "Harishchandra"
+    ],
+    "opened": true,
+    "answer": "Janaka"
+  },
+  {
+    "id": 93,
+    "company": "MythoLogic Corp",
+    "severity": "Easy",
+    "type": "mcq",
+    "question": "Which Rakshasa was the younger brother of Ravana and known for his loyalty to Dharma?",
+    "options": [
+      "Kumbhakarna",
+      "Vibhishana",
+      "Maricha",
+      "Subahu"
+    ],
+    "opened": true,
+    "answer": "Vibhishana"
+  },
+  {
+    "id": 94,
+    "company": "MythoLogic Corp",
+    "severity": "Easy",
+    "type": "mcq",
+    "question": "Who was the charioteer of Arjuna in the Mahabharata?",
+    "options": [
+      "Bheeshma",
+      "Krishna",
+      "Karna",
+      "Drona"
+    ],
+    "opened": true,
+    "answer": "Krishna"
+  },
+  {
+    "id": 95,
+    "company": "MythoLogic Corp",
+    "severity": "Easy",
+    "type": "mcq",
+    "question": "Who wrote the epic Mahabharata?",
+    "options": [
+      "Valmiki",
+      "Ved Vyasa",
+      "Tulsidas",
+      "Kalidasa"
+    ],
+    "opened": true,
+    "answer": "Ved Vyasa"
+  },
+  {
+    "id": 96,
+    "company": "MythoLogic Corp",
+    "severity": "Easy",
+    "type": "mcq",
+    "question": "Which god is known as the Destroyer in the Hindu Trinity?",
+    "options": [
+      "Bheeshma",
+      "Vishnu",
+      "Shiva",
+      "Indra"
+    ],
+    "opened": true,
+    "answer": "Shiva"
+  },
+  {
+    "id": 97,
+    "company": "MythoLogic Corp",
+    "severity": "Easy",
+    "type": "mcq",
+    "question": "Hanuman is considered an incarnation of which god?",
+    "options": [
+      "Agni",
+      "Vayu",
+      "Varuna",
+      "Yama"
+    ],
+    "opened": true,
+    "answer": "Vayu"
+  },
+  {
+    "id": 98,
+    "company": "MythoLogic Corp",
+    "severity": "Easy",
+    "type": "mcq",
+    "question": "Draupadi was the daughter of which king?",
+    "options": [
+      "Drupada",
+      "Janaka",
+      "Virata",
+      "Shalya"
+    ],
+    "opened": true,
+    "answer": "Drupada"
+  },
+  {
+    "id": 99,
+    "company": "MythoLogic Corp",
+    "severity": "Easy",
+    "type": "mcq",
+    "question": "Which weapon is associated with Lord Vishnu?",
+    "options": [
+      "Trishul",
+      "Bow",
+      "Sudarshan Chakra",
+      "Vajra"
+    ],
+    "opened": true,
+    "answer": "Sudarshan Chakra"
+  },
+  {
+    "id": 100,
+    "company": "MythoLogic Corp",
+    "severity": "Easy",
+    "type": "mcq",
+    "question": "Mount Kailash is associated with which god?",
+    "options": [
+      "Vishnu",
+      "Shiva",
+      "Brahma",
+      "Indra"
+    ],
+    "opened": true,
+    "answer": "Shiva"
+  },
+  {
+    "id": 101,
+    "company": "MythoLogic Corp",
+    "severity": "Easy",
+    "type": "mcq",
+    "question": "Who was the teacher of both the Pandavas and the Kauravas?",
+    "options": [
+      "Kripacharya",
+      "Parashurama",
+      "Dronacharya",
+      "Vashistha"
+    ],
+    "opened": true,
+    "answer": "Dronacharya"
+  },
+  {
+    "id": 102,
+    "company": "MythoLogic Corp",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "Karna was the son of which god?",
+    "options": [
+      "Indra",
+      "Surya",
+      "Agni",
+      "Varuna"
+    ],
+    "opened": true,
+    "answer": "Surya"
+  },
+  {
+    "id": 103,
+    "company": "MythoLogic Corp",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "How many days did the Kurukshetra war last?",
+    "options": [
+      "7",
+      "10",
+      "14",
+      "18"
+    ],
+    "opened": true,
+    "answer": "18"
+  },
+  {
+    "id": 104,
+    "company": "MythoLogic Corp",
+    "severity": "Easy",
+    "type": "mcq",
+    "question": "Which avatar of Vishnu appeared as a half-man, half-lion?",
+    "options": [
+      "Varaha",
+      "Narasimha",
+      "Vamana",
+      "Parashurama"
+    ],
+    "opened": true,
+    "answer": "Narasimha"
+  },
+  {
+    "id": 105,
+    "company": "MythoLogic Corp",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "Who was the mother of Lord Krishna?",
+    "options": [
+      "Rohini",
+      "Yashoda",
+      "Devaki",
+      "Radha"
+    ],
+    "opened": true,
+    "answer": "Devaki"
+  },
+  {
+    "id": 106,
+    "company": "MythoLogic Corp",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "Who was the king of gods in Greek MythoLogic Corp?",
+    "options": [
+      "Hades",
+      "Poseidon",
+      "Zeus",
+      "Apollo"
+    ],
+    "opened": true,
+    "answer": "Zeus"
+  },
+  {
+    "id": 107,
+    "company": "MythoLogic Corp",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "Ashwatthama was the son of which warrior?",
+    "options": [
+      "Karna",
+      "Bhishma",
+      "Dronacharya",
+      "Kripa"
+    ],
+    "opened": true,
+    "answer": "Dronacharya"
+  },
+  {
+    "id": 108,
+    "company": "MythoLogic Corp",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "Which river did Bhagiratha bring down to Earth?",
+    "options": [
+      "Yamuna",
+      "Saraswati",
+      "Ganga",
+      "Narmada"
+    ],
+    "opened": true,
+    "answer": "Ganga"
+  },
+  {
+    "id": 109,
+    "company": "MythoLogic Corp",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "Thor is a god associated with which MythoLogic Corp?",
+    "options": [
+      "Greek",
+      "Roman",
+      "Norse",
+      "Egyptian"
+    ],
+    "opened": true,
+    "answer": "Norse"
+  },
+  {
+    "id": 110,
+    "company": "MythoLogic Corp",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "Who cursed Ahalya in Hindu Mythology?",
+    "options": [
+      "Indra",
+      "Gautama",
+      "Vashistha",
+      "Vishwamitra"
+    ],
+    "opened": true,
+    "answer": "Gautama"
+  },
+  {
+    "id": 111,
+    "company": "MythoLogic Corp",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "Who was the commander-in-chief of the Kaurava army on the first day of war?",
+    "options": [
+      "Drona",
+      "Karna",
+      "Bhishma",
+      "Shalya"
+    ],
+    "opened": true,
+    "answer": "Bhishma"
+  },
+  {
+    "id": 112,
+    "company": "MythoLogic Corp",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "Which vow did Bhishma take that earned him the name “Bhishma”?",
+    "options": [
+      "Lifelong celibacy",
+      "Never to fight",
+      "Protect Hastinapur",
+      "Serve the Pandavas"
+    ],
+    "opened": true,
+    "answer": "Lifelong celibacy"
+  },
+  {
+    "id": 113,
+    "company": "MythoLogic Corp",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "Who was the father of Parashurama?",
+    "options": [
+      "Jamadagni",
+      "Vashistha",
+      "Kashyapa",
+      "Vishwamitra"
+    ],
+    "opened": true,
+    "answer": "Jamadagni"
+  },
+  {
+    "id": 114,
+    "company": "MythoLogic Corp",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "Which demon was killed by Vishnu in his Varaha avatar?",
+    "options": [
+      "Hiranyakashipu",
+      "Hiranyaksha",
+      "Bali",
+      "Namuchi"
+    ],
+    "opened": true,
+    "answer": "Hiranyaksha"
+  },
+  {
+    "id": 115,
+    "company": "MythoLogic Corp",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "Who narrated the Mahabharata to King Janamejaya?",
+    "options": [
+      "Ved Vyasa",
+      "Vaishampayana",
+      "Sauti",
+      "Narada"
+    ],
+    "opened": true,
+    "answer": "Vaishampayana"
+  },
+  {
+    "id": 116,
+    "company": "MythoLogic Corp",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "Which mountain did Hanuman carry to save Lakshmana?",
+    "options": [
+      "Dronagiri",
+      "Mandara",
+      "Meru",
+      "Kailash"
+    ],
+    "opened": true,
+    "answer": "Dronagiri"
+  },
+  {
+    "id": 117,
+    "company": "MythoLogic Corp",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "In Greek Mythology, who is the god of the underworld?",
+    "options": [
+      "Zeus",
+      "Ares",
+      "Hades",
+      "Hermes"
+    ],
+    "opened": true,
+    "answer": "Hades"
+  },
+  {
+    "id": 118,
+    "company": "MythoLogic Corp",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "Which sage cursed Indra with a thousand marks on his body?",
+    "options": [
+      "Durvasa",
+      "Gautama",
+      "Agastya",
+      "Vashistha"
+    ],
+    "opened": true,
+    "answer": "Gautama"
+  },
+  {
+    "id": 119,
+    "company": "MythoLogic Corp",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "Odin is the chief god in which Mythology?",
+    "options": [
+      "Greek",
+      "Roman",
+      "Norse",
+      "Egyptian"
+    ],
+    "opened": true,
+    "answer": "Norse"
+  },
+  {
+    "id": 120,
+    "company": "MythoLogic Corp",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "In which form did Vishnu test King Mahabali?",
+    "options": [
+      "Narasimha",
+      "Vamana",
+      "Parashurama",
+      "Krishna"
+    ],
+    "opened": true,
+    "answer": "Vamana"
+  },
+  {
+    "id": 121,
+    "company": "SportsCorp",
+    "severity": "Easy",
+    "type": "mcq",
+    "question": "Who holds the record for the highest individual score in ODI cricket?",
+    "options": [
+      "Sachin Tendulkar",
+      "Rohit Sharma",
+      "Virat Kohli",
+      "Brian Lara"
+    ],
+    "opened": true,
+    "answer": "Rohit Sharma"
+  },
+  {
+    "id": 122,
+    "company": "SportsCorp",
+    "severity": "Easy",
+    "type": "mcq",
+    "question": "Which Indian cricketer has scored the most T20I runs for India?",
+    "options": [
+      "Suresh Raina",
+      "Rohit Sharma",
+      "Virat Kohli",
+      "KL Rahul"
+    ],
+    "opened": true,
+    "answer": "Rohit Sharma"
+  },
+  {
+    "id": 123,
+    "company": "SportsCorp",
+    "severity": "Easy",
+    "type": "mcq",
+    "question": "Who is the all-time top scorer in international football history?",
+    "options": [
+      "Lionel Messi",
+      "Cristiano Ronaldo",
+      "Miroslav Klose",
+      "Ali Daei"
+    ],
+    "opened": true,
+    "answer": "Cristiano Ronaldo"
+  },
+  {
+    "id": 124,
+    "company": "SportsCorp",
+    "severity": "Easy",
+    "type": "mcq",
+    "question": "What happens if a football match ends in a draw during a knockout tournament (no group stage)?",
+    "options": [
+      "Match is replayed",
+      "Team with more fouls loses",
+      "Extra time and possibly penalty shootout is played",
+      "Both teams qualify"
+    ],
+    "opened": true,
+    "answer": "Extra time and possibly penalty shootout is played"
+  },
+  {
+    "id": 125,
+    "company": "SportsCorp",
+    "severity": "Easy",
+    "type": "mcq",
+    "question": "Who is the highest run-scorer in IPL history?",
+    "options": [
+      "AB de Villiers",
+      "Virat Kohli",
+      "Rohit Sharma",
+      "Suresh Raina"
+    ],
+    "opened": true,
+    "answer": "Virat Kohli"
+  },
+  {
+    "id": 126,
+    "company": "SportsCorp",
+    "severity": "Easy",
+    "type": "mcq",
+    "question": "How many substitutions are allowed per team in a standard FIFA match (excluding extra time rules)?",
+    "options": [
+      "5",
+      "4",
+      "3",
+      "6"
+    ],
+    "opened": true,
+    "answer": "5"
+  },
+  {
+    "id": 127,
+    "company": "SportsCorp",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "In the 2023 ICC Men's Cricket World Cup, the cricket world witnessed the first-ever \"Timed Out\" dismissal in the history of international cricket during a match between Sri Lanka and Bangladesh. Which batsman was the victim of this rare rule?",
+    "options": [
+      "Mushfiqur Rahim",
+      "Kusal Mendis",
+      "Angelo Mathews",
+      "Sadeera Samarawickrama"
+    ],
+    "opened": true,
+    "answer": "Angelo Mathews"
+  },
+  {
+    "id": 128,
+    "company": "SportsCorp",
+    "severity": "Easy",
+    "type": "mcq",
+    "question": "Who holds the record for the most runs in the history of Women’s International Cricket (across all formats)?",
+    "options": [
+      "Meg Lanning",
+      "Mithali Raj",
+      "Charlotte Edwards",
+      "Ellyse Perry"
+    ],
+    "opened": true,
+    "answer": "Mithali Raj"
+  },
+  {
+    "id": 129,
+    "company": "SportsCorp",
+    "severity": "Easy",
+    "type": "mcq",
+    "question": "Which country has won the most FIFA World Cup titles?",
+    "options": [
+      "Germany",
+      "Argentina",
+      "Brazil",
+      "Italy"
+    ],
+    "opened": true,
+    "answer": "Brazil"
+  },
+  {
+    "id": 130,
+    "company": "SportsCorp",
+    "severity": "Easy",
+    "type": "mcq",
+    "question": "Which Indian bowler took a 7-wicket haul in the 2023 World Cup semi-final against New Zealand?",
+    "options": [
+      "Jasprit Bumrah",
+      "Mohammed Shami",
+      "Kuldeep Yadav",
+      "Mohammed Siraj"
+    ],
+    "opened": true,
+    "answer": "Mohammed Shami"
+  },
+  {
+    "id": 131,
+    "company": "SportsCorp",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "Which Indian men’s cricketer has dismissed the same batsman most times in Test cricket?",
+    "options": [
+      "Anil Kumble vs Brian Lara",
+      "Kapil Dev vs Viv Ric s",
+      "Ravichandran Ashwin vs David Warner",
+      "Harbhajan Singh vs Ricky Ponting"
+    ],
+    "opened": true,
+    "answer": "Ravichandran Ashwin vs David Warner"
+  },
+  {
+    "id": 132,
+    "company": "SportsCorp",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "Which Indian player was the \"Player of the Tournament\" in the 2013 Champions Trophy victory?",
+    "options": [
+      "MS Dhoni",
+      "Virat Kohli",
+      "Shikhar Dhawan",
+      "Ravindra Jadeja"
+    ],
+    "opened": true,
+    "answer": "Shikhar Dhawan"
+  },
+  {
+    "id": 133,
+    "company": "SportsCorp",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "Which Indian batsman has scored the most centuries in ODI cricket?",
+    "options": [
+      "Sachin Tendulkar",
+      "Virat Kohli",
+      "Rohit Sharma",
+      "Rahul Dravid"
+    ],
+    "opened": true,
+    "answer": "Virat Kohli"
+  },
+  {
+    "id": 134,
+    "company": "SportsCorp",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "Which player holds the record for the most goals in FIFA World Cup history?",
+    "options": [
+      "Ronaldo (Brazil)",
+      "Lionel Messi",
+      "Miroslav Klose",
+      "Diego Maradona"
+    ],
+    "opened": true,
+    "answer": "Miroslav Klose"
+  },
+  {
+    "id": 135,
+    "company": "SportsCorp",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "Which bowler is the all-time highest wicket-taker in IPL history?",
+    "options": [
+      "Bhuvneshwar Kumar",
+      "Yuzvendra Chahal",
+      "Piyush Chawla",
+      "Lasith Malinga"
+    ],
+    "opened": true,
+    "answer": "Yuzvendra Chahal"
+  },
+  {
+    "id": 136,
+    "company": "SportsCorp",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "In which situation is a penalty kick awarded?",
+    "options": [
+      "A foul anywhere on the field",
+      "Direct-free-kick offense committed by the defending team inside own penalty area",
+      "An indirect free kick inside the penalty area",
+      "A handball by the attacking team"
+    ],
+    "opened": true,
+    "answer": "Direct-free-kick offense committed by the defending team inside own penalty area"
+  },
+  {
+    "id": 137,
+    "company": "SportsCorp",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "A player receives a second yellow card in a match. What is the correct referee action?",
+    "options": [
+      "Player is warned and substituted",
+      "Player receives a red card and is sent off",
+      "Player misses the next match only",
+      "Player is temporarily suspended"
+    ],
+    "opened": true,
+    "answer": "Player receives a red card and is sent off"
+  },
+  {
+    "id": 138,
+    "company": "SportsCorp",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "Which restart is used when the ball touches the referee and a team gains possession?",
+    "options": [
+      "Drop ball",
+      "Corner kick",
+      "Indirect free kick",
+      "Throw-in"
+    ],
+    "opened": true,
+    "answer": "Drop ball"
+  },
+  {
+    "id": 139,
+    "company": "SportsCorp",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "Who scored the famous “Hand of God” goal in the 1986 FIFA World Cup?",
+    "options": [
+      "Pele",
+      "Diego Maradona",
+      "Zinedine Zidane",
+      "Franz Beckenbauer"
+    ],
+    "opened": true,
+    "answer": "Diego Maradona"
+  },
+  {
+    "id": 140,
+    "company": "SportsCorp",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "Which Indian athlete finished 4th in the Women's Individual Stroke Play (Golf) at the Tokyo 2020 Olympics, narrowly missing a medal?",
+    "options": [
+      "Hima Das",
+      "Aditi Ashok",
+      "Deepika Kumari",
+      "Avinash Sable"
+    ],
+    "opened": true,
+    "answer": "Aditi Ashok"
+  },
+  {
+    "id": 141,
+    "company": "SportsCorp",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "Which cricketer holds the record for the highest individual score in a Test match innings while remaining not out, yet not holding the world record for the highest individual score overall?",
+    "options": [
+      "Garry Sobers",
+      "Matthew Hayden",
+      "Mahela Jayawardene",
+      "Brian Lara"
+    ],
+    "opened": true,
+    "answer": "Garry Sobers"
+  },
+  {
+    "id": 142,
+    "company": "SportsCorp",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "Which country won the first ever FIFA World Cup in 1930?",
+    "options": [
+      "Brazil",
+      "Italy",
+      "Uruguay",
+      "England"
+    ],
+    "opened": true,
+    "answer": "Uruguay"
+  },
+  {
+    "id": 143,
+    "company": "SportsCorp",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "Only one cricketer in history has the unique distinction of playing Test cricket for both England and India. He scored a century on debut for England in the 1932-33 Bodyline series and later captained India in 1946. Who was he?",
+    "options": [
+      "Lala Amarnath",
+      "Iftikhar Ali Khan Pataudi",
+      "C.K. Nayudu",
+      "Mansoor Ali Khan Pataudi"
+    ],
+    "opened": true,
+    "answer": "Iftikhar Ali Khan Pataudi"
+  },
+  {
+    "id": 144,
+    "company": "SportsCorp",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "An attacking player in an offside position is fouled by a defender before the ball is played to him. What is the correct decision?",
+    "options": [
+      "Indirect free kick for offside",
+      "Direct free kick for the defending team",
+      "Direct free kick or penalty kick for the attacking team",
+      "Drop ball"
+    ],
+    "opened": true,
+    "answer": "Direct free kick or penalty kick for the attacking team"
+  },
+  {
+    "id": 145,
+    "company": "SportsCorp",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "The ball rebounds off the goalpost and hits the referee, remaining on the field. A team then starts a promising attack. What is the correct restart?",
+    "options": [
+      "Goal is awarded",
+      "Play continues",
+      "Dropped ball for the team that last touched the ball",
+      "Indirect free kick"
+    ],
+    "opened": true,
+    "answer": "Dropped ball for the team that last touched the ball"
+  },
+  {
+    "id": 146,
+    "company": "SportsCorp",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "During a penalty shootout, an eligible player leaves the field due to injury. How does this affect the kicks?",
+    "options": [
+      "Opponents lose one kick",
+      "Injured player may return later",
+      "Opponents must reduce their number of kickers to match",
+      "Penalty shootout is abandoned"
+    ],
+    "opened": true,
+    "answer": "Opponents must reduce their number of kickers to match"
+  },
+  {
+    "id": 147,
+    "company": "SportsCorp",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "Which Indian bowler has the best bowling figures by an Indian in a single ODI match?",
+    "options": [
+      "Anil Kumble",
+      "Stuart Binny",
+      "Mohammed Shami",
+      "Jasprit Bumrah"
+    ],
+    "opened": true,
+    "answer": "Stuart Binny"
+  },
+  {
+    "id": 148,
+    "company": "SportsCorp",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "Manu Bhaker’s historic second medal at Paris 2024 came with which partner in the Mixed Team 10m Air Pistol event?",
+    "options": [
+      "Abhinav Bindra",
+      "Sarabjot Singh",
+      "Arjun Babuta",
+      "Saurabh Chaudhary"
+    ],
+    "opened": true,
+    "answer": "Sarabjot Singh"
+  },
+  {
+    "id": 149,
+    "company": "SportsCorp",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "In elite defensive systems, the “6-back” defense primarily aims to counter which type of attack?",
+    "options": [
+      "Sharp cross-court spikes",
+      "High outside sets",
+      "Power hits down the middle",
+      "Off-speed roll shots"
+    ],
+    "opened": true,
+    "answer": "Sharp cross-court spikes"
+  },
+  {
+    "id": 150,
+    "company": "SportsCorp",
+    "severity": "Easy",
+    "type": "mcq",
+    "question": "What is the standard height of a basketball hoop?",
+    "options": [
+      "9 feet",
+      "10 feet",
+      "11 feet",
+      "12 feet"
+    ],
+    "opened": true,
+    "answer": "10 feet"
+  },
+  {
+    "id": 151,
+    "company": "Syntax Systems",
+    "severity": "Easy",
+    "type": "mcq",
+    "question": "Which of the following is a correct file extension for a Python program?",
+    "options": [
+      ".java",
+      ".py",
+      ".cpp",
+      ".c"
+    ],
+    "opened": true,
+    "answer": ".py"
+  },
+  {
+    "id": 152,
+    "company": "Syntax Systems",
+    "severity": "Easy",
+    "type": "mcq",
+    "question": "Which of the following is the correct syntax to print “Hello World” in Java?",
+    "options": [
+      "print(\"Hello World\")",
+      "System.out.println(\"Hello World\")",
+      "echo \"Hello World\"",
+      "printf(\"Hello World\")"
+    ],
+    "opened": true,
+    "answer": "System.out.println(\"Hello World\")"
+  },
+  {
+    "id": 153,
+    "company": "Syntax Systems",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "Which of these is a valid variable name in C?",
+    "options": [
+      "1variable",
+      "_var",
+      "var-name",
+      "@var"
+    ],
+    "opened": true,
+    "answer": "_var"
+  },
+  {
+    "id": 154,
+    "company": "Syntax Systems",
+    "severity": "Easy",
+    "type": "mcq",
+    "question": "What is the output of print(2 + 3 * 4) in Python?",
+    "options": [
+      "20",
+      "14",
+      "24",
+      "9"
+    ],
+    "opened": true,
+    "answer": "14"
+  },
+  {
+    "id": 155,
+    "company": "Syntax Systems",
+    "severity": "Easy",
+    "type": "mcq",
+    "question": "Which of the following is a looping statement in Java?",
+    "options": [
+      "repeat",
+      "for",
+      "switch",
+      "select"
+    ],
+    "opened": true,
+    "answer": "for"
+  },
+  {
+    "id": 156,
+    "company": "Syntax Systems",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "Which operator is used to perform exponentiation in Python?",
+    "options": [
+      "^",
+      "**",
+      "%",
+      "//"
+    ],
+    "opened": true,
+    "answer": "**"
+  },
+  {
+    "id": 157,
+    "company": "Syntax Systems",
+    "severity": "Easy",
+    "type": "mcq",
+    "question": "Which of the following data types can store fractional numbers in C++?",
+    "options": [
+      "int",
+      "float",
+      "char",
+      "bool"
+    ],
+    "opened": true,
+    "answer": "float"
+  },
+  {
+    "id": 158,
+    "company": "Syntax Systems",
+    "severity": "Easy",
+    "type": "mcq",
+    "question": "Which of the following is used to end a statement in C, C++, or Java?",
+    "options": [
+      ".",
+      ":",
+      ";",
+      ","
+    ],
+    "opened": true,
+    "answer": ";"
+  },
+  {
+    "id": 159,
+    "company": "Syntax Systems",
+    "severity": "Easy",
+    "type": "mcq",
+    "question": "Which Python keyword is used to define a function?",
+    "options": [
+      "function",
+      "def",
+      "func",
+      "define"
+    ],
+    "opened": true,
+    "answer": "def"
+  },
+  {
+    "id": 160,
+    "company": "Syntax Systems",
+    "severity": "Easy",
+    "type": "mcq",
+    "question": "Which of the following is a correct comment in C++?",
+    "options": [
+      "/<!-- comment -->",
+      "// comment",
+      "/* comment */",
+      "# comment"
+    ],
+    "opened": true,
+    "answer": "// comment"
+  },
+  {
+    "id": 161,
+    "company": "Syntax Systems",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "Which of the following is the correct way to declare an array in Java?",
+    "options": [
+      "int arr[] = new int[5];",
+      "int arr(5);",
+      "arr[5] = int;",
+      "int arr = [5];"
+    ],
+    "opened": true,
+    "answer": "int arr[] = new int[5];"
+  },
+  {
+    "id": 162,
+    "company": "Syntax Systems",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "In Python, which of these data types is immutable?",
+    "options": [
+      "list",
+      "set",
+      "tuple",
+      "dict"
+    ],
+    "opened": true,
+    "answer": "tuple"
+  },
+  {
+    "id": 163,
+    "company": "Syntax Systems",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "Which of the following correctly describes a stack data structure?",
+    "options": [
+      "FIFO",
+      "LIFO",
+      "Random",
+      "Circular"
+    ],
+    "opened": true,
+    "answer": "LIFO"
+  },
+  {
+    "id": 164,
+    "company": "Syntax Systems",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "In C++, which keyword is used to prevent a variable from being modified?",
+    "options": [
+      "constant",
+      "final",
+      "const",
+      "static"
+    ],
+    "opened": true,
+    "answer": "const"
+  },
+  {
+    "id": 165,
+    "company": "Syntax Systems",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "Which of the following loops executes at least once even if the condition is true?",
+    "options": [
+      "for",
+      "while",
+      "do-while",
+      "foreach"
+    ],
+    "opened": true,
+    "answer": "do-while"
+  },
+  {
+    "id": 166,
+    "company": "Syntax Systems",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "Which of the following is used to handle exceptions in Java?",
+    "options": [
+      "try-catch",
+      "if-else",
+      "throw-error",
+      "handle-exception"
+    ],
+    "opened": true,
+    "answer": "try-catch"
+  },
+  {
+    "id": 167,
+    "company": "Syntax Systems",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "In Python, what is the output of len(\"Hello World\")?",
+    "options": [
+      "10",
+      "11",
+      "12",
+      "9"
+    ],
+    "opened": true,
+    "answer": "11"
+  },
+  {
+    "id": 168,
+    "company": "Syntax Systems",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "Which of the following is a correct way to declare a pointer in C?",
+    "options": [
+      "int p;",
+      "int* p;",
+      "p int*;",
+      "pointer p;"
+    ],
+    "opened": true,
+    "answer": "int* p;"
+  },
+  {
+    "id": 169,
+    "company": "Syntax Systems",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "Which of the following is used to terminate a loop immediately in C/C++?",
+    "options": [
+      "stop",
+      "continue",
+      "break",
+      "exit"
+    ],
+    "opened": true,
+    "answer": "break"
+  },
+  {
+    "id": 170,
+    "company": "Syntax Systems",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "In Java, which keyword is used to inherit a class?",
+    "options": [
+      "implements",
+      "extends",
+      "inherits",
+      "super"
+    ],
+    "opened": true,
+    "answer": "extends"
+  },
+  {
+    "id": 171,
+    "company": "Syntax Systems",
+    "severity": "Easy",
+    "type": "mcq",
+    "question": "What is the output of the following Python code?\na = [1, 2, 3]\nb = a\nb.append(4)\nprint(a)",
+    "options": [
+      "[1, 2, 3]",
+      "[1, 2, 3, 4]",
+      "[4]",
+      "Error"
+    ],
+    "opened": true,
+    "answer": "[1, 2, 3, 4]"
+  },
+  {
+    "id": 172,
+    "company": "Syntax Systems",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "Which algorithm is best suited for finding the shortest path in a weighted graph without negative weights?",
+    "options": [
+      "BFS",
+      "DFS",
+      "Dijkstra",
+      "Kruskal"
+    ],
+    "opened": true,
+    "answer": "Dijkstra"
+  },
+  {
+    "id": 173,
+    "company": "Syntax Systems",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "Which of the following is the correct way to define a constructor in C++?",
+    "options": [
+      "void ClassName()",
+      "ClassName()",
+      "~ClassName()",
+      "function ClassName()"
+    ],
+    "opened": true,
+    "answer": "ClassName()"
+  },
+  {
+    "id": 174,
+    "company": "Syntax Systems",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "Which of the following correctly explains call by reference?",
+    "options": [
+      "Copies the value to the function",
+      "Passes the address of variable to function",
+      "Function creates a temporary variable",
+      "Function cannot modify original variable"
+    ],
+    "opened": true,
+    "answer": "Passes the address of variable to function"
+  },
+  {
+    "id": 175,
+    "company": "Syntax Systems",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "What is the output of this Java code?\nint x = 5;\nSystem.out.println(++x + x++);",
+    "options": [
+      "11",
+      "12",
+      "10",
+      "13"
+    ],
+    "opened": true,
+    "answer": "12"
+  },
+  {
+    "id": 176,
+    "company": "Syntax Systems",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "In C, which of the following is true about memory allocation using malloc()?",
+    "options": [
+      "Allocates memory at runtime",
+      "Returns a void pointer",
+      "Allocates memory at compile-time",
+      "Requires free() to prevent memory leaks"
+    ],
+    "opened": true,
+    "answer": "Allocates memory at compile-time"
+  },
+  {
+    "id": 177,
+    "company": "Syntax Systems",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "Which data structure is used in recursion to keep track of function calls?",
+    "options": [
+      "Queue",
+      "Stack",
+      "Linked list",
+      "Tree"
+    ],
+    "opened": true,
+    "answer": "Stack"
+  },
+  {
+    "id": 178,
+    "company": "Syntax Systems",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "Which operator is used to access members of a structure via pointer in C?",
+    "options": [
+      ".",
+      "&",
+      "->",
+      "*"
+    ],
+    "opened": true,
+    "answer": "->"
+  },
+  {
+    "id": 179,
+    "company": "Syntax Systems",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "In Python, which of these is used to create an anonymous function?",
+    "options": [
+      "function()",
+      "lambda",
+      "def",
+      "anon"
+    ],
+    "opened": true,
+    "answer": "lambda"
+  },
+  {
+    "id": 180,
+    "company": "Syntax Systems",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "Which sorting algorithm has the worst-case complexity of O(n²) but performs best on nearly sorted arrays?",
+    "options": [
+      "Quick Sort",
+      "Bubble Sort",
+      "Insertion Sort",
+      "Merge Sort"
+    ],
+    "opened": true,
+    "answer": "Insertion Sort"
+  },
+  {
+    "id": 181,
+    "company": "NeuroMind AI",
+    "severity": "Easy",
+    "type": "mcq",
+    "question": "Which type of Machine Learning uses labeled data?",
+    "options": [
+      "Unsupervised Learning",
+      "Reinforcement Learning",
+      "Supervised Learning",
+      "Deep Learning"
+    ],
+    "opened": true,
+    "answer": "Supervised Learning"
+  },
+  {
+    "id": 182,
+    "company": "NeuroMind AI",
+    "severity": "Easy",
+    "type": "mcq",
+    "question": "What does overfitting mean in Machine Learning?",
+    "options": [
+      "Model performs well on new data",
+      "Model performs poorly on training data",
+      "Model learns training data too well and fails on new data",
+      "Model ignores training data"
+    ],
+    "opened": true,
+    "answer": "Model learns training data too well and fails on new data"
+  },
+  {
+    "id": 183,
+    "company": "NeuroMind AI",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "Which of the following is an example of Unsupervised Learning?",
+    "options": [
+      "Linear Regression",
+      "Logistic Regression",
+      "Decision Tree",
+      "K-Means Clustering"
+    ],
+    "opened": true,
+    "answer": "K-Means Clustering"
+  },
+  {
+    "id": 184,
+    "company": "NeuroMind AI",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "Which algorithm is commonly used for classification problems?",
+    "options": [
+      "Decision Tree",
+      "K-Means",
+      "Linear Regression",
+      "Apriori"
+    ],
+    "opened": true,
+    "answer": "Decision Tree"
+  },
+  {
+    "id": 185,
+    "company": "NeuroMind AI",
+    "severity": "Easy",
+    "type": "mcq",
+    "question": "What is the main function of a Neural Network?",
+    "options": [
+      "Store data permanently",
+      "Process information similar to the human brain",
+      "Control hardware devices",
+      "Create website"
+    ],
+    "opened": true,
+    "answer": "Process information similar to the human brain"
+  },
+  {
+    "id": 186,
+    "company": "NeuroMind AI",
+    "severity": "Easy",
+    "type": "mcq",
+    "question": "Which of the following is an application of AI?",
+    "options": [
+      "Word Processor",
+      "Calculator",
+      "Voice Assistant",
+      "Notepad"
+    ],
+    "opened": true,
+    "answer": "Voice Assistant"
+  },
+  {
+    "id": 187,
+    "company": "NeuroMind AI",
+    "severity": "Easy",
+    "type": "mcq",
+    "question": "Which type of learning is based on reward and punishment?",
+    "options": [
+      "Supervised Learning",
+      "Unsupervised Learning",
+      "Deep Learning",
+      "Reinforcement Learning"
+    ],
+    "opened": true,
+    "answer": "Reinforcement Learning"
+  },
+  {
+    "id": 188,
+    "company": "NeuroMind AI",
+    "severity": "Easy",
+    "type": "mcq",
+    "question": "Which of the following is an example of supervised learning?",
+    "options": [
+      "Spam Email Detection",
+      "Market Basket Analysis",
+      "Customer Segmentation",
+      "Image Compression"
+    ],
+    "opened": true,
+    "answer": "Spam Email Detection"
+  },
+  {
+    "id": 189,
+    "company": "NeuroMind AI",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "What is the purpose of a loss function in ML?",
+    "options": [
+      "To store data",
+      "To measure model error",
+      "To increase data size",
+      "To draw graphs"
+    ],
+    "opened": true,
+    "answer": "To measure model error"
+  },
+  {
+    "id": 190,
+    "company": "NeuroMind AI",
+    "severity": "Easy",
+    "type": "mcq",
+    "question": "Which of the following is an example of Computer Vision?",
+    "options": [
+      "Speech Recognition",
+      "Chatbot",
+      "Face Recognition",
+      "Recommendation System"
+    ],
+    "opened": true,
+    "answer": "Face Recognition"
+  },
+  {
+    "id": 191,
+    "company": "NeuroMind AI",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "Which technique is primarily used to handle imbalanced datasets in classification problems?",
+    "options": [
+      "PCA",
+      "SMOTE",
+      "K-Means",
+      "Apriori"
+    ],
+    "opened": true,
+    "answer": "SMOTE"
+  },
+  {
+    "id": 192,
+    "company": "NeuroMind AI",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "In a confusion matrix, which metric measures the proportion of correctly predicted positive cases?",
+    "options": [
+      "Recall",
+      "Accuracy",
+      "Specificity",
+      "Mean Squared Error"
+    ],
+    "opened": true,
+    "answer": "Recall"
+  },
+  {
+    "id": 193,
+    "company": "NeuroMind AI",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "Which optimization algorithm is most commonly used to minimize loss functions in deep learning?",
+    "options": [
+      "Breadth First Search",
+      "Gradient Descent",
+      "Apriori Algorithm",
+      "K-Means"
+    ],
+    "opened": true,
+    "answer": "Gradient Descent"
+  },
+  {
+    "id": 194,
+    "company": "NeuroMind AI",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "What problem does the vanishing gradient mainly affect?",
+    "options": [
+      "Decision Trees",
+      "Linear Regression",
+      "Deep Neural Networks",
+      "K-Nearest Neighbors"
+    ],
+    "opened": true,
+    "answer": "Deep Neural Networks"
+  },
+  {
+    "id": 195,
+    "company": "NeuroMind AI",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "Which of the following algorithms is an ensemble learning method?",
+    "options": [
+      "Linear Regression",
+      "Naive Bayes",
+      "Random Forest",
+      "K-Means"
+    ],
+    "opened": true,
+    "answer": "Random Forest"
+  },
+  {
+    "id": 196,
+    "company": "NeuroMind AI",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "In Logistic Regression, which function is used to map values between 0 and 1?",
+    "options": [
+      "ReLU",
+      "Sigmoid",
+      "Softmax",
+      "Tanh"
+    ],
+    "opened": true,
+    "answer": "Sigmoid"
+  },
+  {
+    "id": 197,
+    "company": "NeuroMind AI",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "What is the main advantage of using Softmax in multi-class classification?",
+    "options": [
+      "Reduces overfitting",
+      "Converts outputs into probability distribution",
+      "Speeds up training",
+      "Removes noise"
+    ],
+    "opened": true,
+    "answer": "Converts outputs into probability distribution"
+  },
+  {
+    "id": 198,
+    "company": "NeuroMind AI",
+    "severity": "Easy",
+    "type": "mcq",
+    "question": "Which concept explains a model performing well on training data but poorly on unseen data?",
+    "options": [
+      "Generalization",
+      "Bias",
+      "Underfitting",
+      "Overfitting"
+    ],
+    "opened": true,
+    "answer": "Overfitting"
+  },
+  {
+    "id": 199,
+    "company": "NeuroMind AI",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "Which algorithm updates weights after processing the entire training dataset?",
+    "options": [
+      "Stochastic Gradient Descent",
+      "Mini-batch Gradient Descent",
+      "Batch Gradient Descent",
+      "Random Search"
+    ],
+    "opened": true,
+    "answer": "Batch Gradient Descent"
+  },
+  {
+    "id": 200,
+    "company": "NeuroMind AI",
+    "severity": "Medium",
+    "type": "mcq",
+    "question": "What is the main limitation of Naive Bayes classifier?",
+    "options": [
+      "High computation cost",
+      "Assumption of feature independence",
+      "Cannot handle large datasets",
+      "Requires normalization"
+    ],
+    "opened": true,
+    "answer": "Assumption of feature independence"
+  },
+  {
+    "id": 201,
+    "company": "NeuroMind AI",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "A model has very low training error and very high test error. Which situation best explains this?",
+    "options": [
+      "High bias model",
+      "Low variance model",
+      "Overfitting due to high variance",
+      "Underfitting due to low complexity"
+    ],
+    "opened": true,
+    "answer": "Overfitting due to high variance"
+  },
+  {
+    "id": 202,
+    "company": "NeuroMind AI",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "Which statement about the bias–variance tradeoff is MOST accurate?",
+    "options": [
+      "Bias and variance can always be minimized together",
+      "Reducing bias always reduces variance",
+      "There is a tradeoff between bias and variance",
+      "Bias and variance are independent"
+    ],
+    "opened": true,
+    "answer": "There is a tradeoff between bias and variance"
+  },
+  {
+    "id": 203,
+    "company": "NeuroMind AI",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "Why can Gradient Descent fail even when the learning rate is very small?",
+    "options": [
+      "Data is normalized",
+      "Loss surface is non-convex",
+      "Batch size is large",
+      "Model is linear"
+    ],
+    "opened": true,
+    "answer": "Loss surface is non-convex"
+  },
+  {
+    "id": 204,
+    "company": "NeuroMind AI",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "Which scenario best explains why accuracy is a poor metric?",
+    "options": [
+      "Balanced dataset",
+      "Regression problem",
+      "Highly imbalanced dataset",
+      "Small dataset"
+    ],
+    "opened": true,
+    "answer": "Highly imbalanced dataset"
+  },
+  {
+    "id": 205,
+    "company": "NeuroMind AI",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "Which situation MOST likely causes vanishing gradients?",
+    "options": [
+      "Shallow neural network",
+      "ReLU activation",
+      "Deep network with sigmoid activation",
+      "Decision Tree"
+    ],
+    "opened": true,
+    "answer": "Deep network with sigmoid activation"
+  },
+  {
+    "id": 206,
+    "company": "NeuroMind AI",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "Why can adding more features degrade model performance?",
+    "options": [
+      "Curse of dimensionality",
+      "Increase in bias",
+      "Reduction in training data",
+      "Gradient explosion"
+    ],
+    "opened": true,
+    "answer": "Curse of dimensionality"
+  },
+  {
+    "id": 207,
+    "company": "NeuroMind AI",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "Which explanation BEST justifies why deep networks generalize well despite overparameterization?",
+    "options": [
+      "They always avoid overfitting",
+      "Optimization bias of SGD",
+      "High accuracy guarantees generalization",
+      "Fewer neurons"
+    ],
+    "opened": true,
+    "answer": "Optimization bias of SGD"
+  },
+  {
+    "id": 208,
+    "company": "NeuroMind AI",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "When can Recall be preferred over Precision?",
+    "options": [
+      "When true positives are costly",
+      "When true negatives are costly",
+      "When dataset is small",
+      "When accuracy is high"
+    ],
+    "opened": true,
+    "answer": "When true negatives are costly"
+  },
+  {
+    "id": 209,
+    "company": "NeuroMind AI",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "Why does Batch Normalization sometimes reduce overfitting?",
+    "options": [
+      "It removes noise from data",
+      "It limits model size",
+      "It introduces noise during training",
+      "It increases learning rate"
+    ],
+    "opened": true,
+    "answer": "It introduces noise during training"
+  },
+  {
+    "id": 210,
+    "company": "NeuroMind AI",
+    "severity": "Hard",
+    "type": "mcq",
+    "question": "Which statement about the ReLU (Rectified Linear Unit) activation function is true?",
+    "options": [
+      "It can suffer from the 'dying ReLU' problem",
+      "It is computationally efficient",
+      "It is bounded between 0 and 1",
+      "It helps mitigate the vanishing gradient problem"
+    ],
+    "opened": true,
+    "answer": "It is bounded between 0 and 1"
+  }
+]

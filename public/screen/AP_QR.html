@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@500;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --primary:#2563eb;
+    --bg:#020617;
+    --glass:rgba(15,23,42,.75);
+    --border:rgba(255,255,255,.12);
+    --text:#f8fafc;
+    --green:#00ff00; /* Bright Green for gradient */
+    --red:#ff0000;   /* Bright Red for gradient */
+}
+
+html,body{
+    height:100%;
+    margin:0;
+    overflow:hidden;
+    font-family:Inter,sans-serif;
+    color:var(--text);
+}
+
+/* ===== VIDEO BACKGROUND ===== */
+#bg-video-container{
+    position:fixed;
+    inset:0;
+    z-index:-100;
+    background:var(--bg);
+}
+#bg-video{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+.video-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(2,6,23,.5);
+    z-index:-90;
+}
+
+/* ===== MAIN WRAPPER ===== */
+#main-wrapper {
+    position: relative;
+    z-index: 10;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===== HEADER ===== */
+.header {
+    height: 8vh;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--glass);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    border-radius: 0 0 28px 28px;
+}
+
+.header-logo {
+    font-size: 2.3rem;
+    font-weight: 900;
+    background: linear-gradient(170deg, var(--green) 50%, var(--red) 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* ===== CONTENT ===== */
+.main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+}
+
+.rules-card {
+    background: var(--glass);
+    border-radius: 30px;
+    padding: clamp(30px, 5vw, 60px);
+    border: 1px solid var(--border);
+    backdrop-filter: blur(20px);
+    max-width: 1000px;
+    width: 100%;
+    box-shadow: 0 40px 100px rgba(0,0,0,.5);
+}
+
+.rules-title {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* ===== RULE ROW ===== */
+.rule-row {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 30px;
+    align-items: flex-start;
+}
+
+.rule-number {
+    width: 50px;
+    height: 50px;
+    background: rgba(37,99,235,.15);
+    border: 1px solid var(--primary);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 800;
+    font-size: 1.4rem;
+    flex-shrink: 0;
+}
+
+.rule-text {
+    font-size: clamp(1.1rem, 2vw, 1.5rem);
+    line-height: 1.5;
+    color: rgba(248, 250, 252, .9);
+}
+
+.highlight {
+    color: #10b981;
+    font-weight: 700;
+}
+
+/* ===== GRADIENT TICKER (QUOTES ONLY) ===== */
+.ticker-wrap{
+    height:8vh;
+    background:#000;
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+    border-top:1px solid var(--border);
+}
+.ticker-move{
+    display:flex;
+    white-space:nowrap;
+    animation:ticker 45s linear infinite; 
+}
+.ticker-item{
+    padding:0 4.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 800;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+    font-style: italic;
+    letter-spacing: 1px;
+    
+    /* 135 Degree Green/Red Split */
+    background: linear-gradient(165deg, var(--green) 50%, var(--red) 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@keyframes ticker{
+    0%{transform:translateX(0)}
+    100%{transform:translateX(-50%)}
+}
+</style>
+</head>
+
+<body>
+
+<div id="bg-video-container">
+    <video id="bg-video" autoplay muted loop playsinline preload="auto">
+        <source src="vid.mp4" type="video/mp4">
+    </video>
+</div>
+<div class="video-overlay"></div>
+
+<div id="main-wrapper">
+    <div class="header">
+        <div class="header-logo">TRADE-X 2.0</div>
+        <span class="badge bg-primary px-3 py-2">MARKET PROTOCOLS</span>
+    </div>
+
+    <div class="main">
+        <div class="rules-card">
+            <h1 class="rules-title">ROUND AND PORTFOLIO BOOKING QR</h1>
+
+            <div class="rule-row">
+                <img src="qr.jpeg" width="210" style="height:auto; display:block; margin:auto;" alt="https://aaravshah1311.is-great.net/services/Trade-X">
+            </div>
+            <div class="rule-row text-center">
+                 <a href="https://aaravshah1311.is-great.net/services/Trade-X" target="_blank" style="height:auto; display:block; margin:auto;">aaravshah1311.is-great.net/services/Trade-X</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="ticker-wrap">
+        <div id="ticker" class="ticker-move"></div>
+    </div>
+</div>
+
+<script>
+const bgVideo = document.getElementById("bg-video");
+window.addEventListener('load', () => {
+    bgVideo.play().catch(error => {
+        const playOnInteraction = () => {
+            bgVideo.play();
+            window.removeEventListener('click', playOnInteraction);
+        };
+        window.addEventListener('click', playOnInteraction);
+    });
+});
+
+const dialogues = [
+    "“Risk hai toh ishq hai.”",
+    "“Sabse bada risk hai… risk na lena.”",
+    "“Profit booking is never wrong.”",
+    "“Market sabko mauka deta hai.”",
+    "“Bulls make money, bears make money, pigs get slaughtered.”"
+];
+
+function initTicker() {
+    const tickerEl = document.getElementById("ticker");
+    const quoteHtml = dialogues.map(q => `
+        <div class="ticker-item">
+            ${q}
+        </div>
+    `).join("");
+
+    tickerEl.innerHTML = quoteHtml + quoteHtml;
+}
+
+initTicker();
+</script>
+
+</body>
+</html>
