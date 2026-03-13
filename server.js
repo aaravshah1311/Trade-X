@@ -16,7 +16,7 @@ const QUESTIONS_PATH = path.join(__dirname, 'public', 'screen', 'questions.json'
 const pool = mysql.createPool({
     host: 'localhost',
     user: 'root',
-    password: 'Aarav@1311',
+    password: '',
     database: 'tradex_db'
 });
 
@@ -199,4 +199,5 @@ app.get('/api/draw-company-luck', (req, res) => {
 
 server.listen(3000, () => console.log('Server running on http://localhost:3000'));
 exec(`start http://localhost:3000`);
+
 exec(`start http://localhost:3000/admin.html`);
