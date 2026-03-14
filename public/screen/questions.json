@@ -11,7 +11,7 @@
       "MFEJDJOE",
       "EOJDJEFM"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "EOJDJEFM"
   },
   {
@@ -26,7 +26,7 @@
       "DNVG",
       "EOYG"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "DNWG"
   },
   {
@@ -41,7 +41,7 @@
       "MOSIC",
       "MUSOC"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "MASOC"
   },
   {
@@ -56,7 +56,7 @@
       "42",
       "44"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "42"
   },
   {
@@ -71,7 +71,7 @@
       "P25",
       "Q25"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "O25"
   },
   {
@@ -86,7 +86,7 @@
       "13",
       "138"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "158"
   },
   {
@@ -101,7 +101,7 @@
       "24",
       "100"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "60"
   },
   {
@@ -116,7 +116,7 @@
       "1900",
       "2000"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "1900"
   },
   {
@@ -131,7 +131,7 @@
       "D",
       "None of these"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "D"
   },
   {
@@ -146,7 +146,7 @@
       "16",
       "0"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "8"
   },
   {
@@ -161,7 +161,7 @@
       "110",
       "121"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "99"
   },
   {
@@ -176,7 +176,7 @@
       "8/15",
       "2/5"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "8/15"
   },
   {
@@ -191,7 +191,7 @@
       "His nephew",
       "Himself"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "His son"
   },
   {
@@ -206,7 +206,7 @@
       "17 km",
       "12 km"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "13 km"
   },
   {
@@ -221,7 +221,7 @@
       "10 m",
       "20 m"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "10 m"
   },
   {
@@ -236,7 +236,7 @@
       "12 years",
       "14 years"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "12 years"
   },
   {
@@ -251,7 +251,7 @@
       "Monday",
       "Sunday"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Wednesday"
   },
   {
@@ -266,7 +266,7 @@
       "30 L",
       "35 L"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "25 L"
   },
   {
@@ -281,7 +281,7 @@
       "5",
       "10"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "5"
   },
   {
@@ -296,7 +296,7 @@
       "7/21",
       "9/21"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "1/3"
   },
   {
@@ -311,7 +311,7 @@
       "13",
       "66"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "12"
   },
   {
@@ -326,7 +326,7 @@
       "5",
       "9"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "3"
   },
   {
@@ -341,7 +341,7 @@
       "Son",
       "Husband"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Father"
   },
   {
@@ -356,7 +356,7 @@
       "It doesn't matter; the coin is in Drawer 1 or 2 equally.",
       "Stay; the probability of Drawer 1 is 2/3."
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Switch; the probability of Drawer 2 is 2/3."
   },
   {
@@ -371,7 +371,7 @@
       "90",
       "75"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "100"
   },
   {
@@ -386,7 +386,7 @@
       "It is 6.25% lower.",
       "It is 5% lower."
     ],
-    "opened": true,
+    "opened": false,
     "answer": "It is 6.25% lower."
   },
   {
@@ -401,7 +401,7 @@
       "3",
       "4"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "3"
   },
   {
@@ -416,7 +416,7 @@
       "46 years",
       "50 years"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "46 years"
   },
   {
@@ -431,7 +431,7 @@
       "10.8 sec",
       "12 sec"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "10.8 sec"
   },
   {
@@ -446,7 +446,7 @@
       "12 hours",
       "13 hours"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "12 hours"
   },
   {
@@ -461,7 +461,7 @@
       "Germany",
       "USA"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Germany"
   },
   {
@@ -476,7 +476,7 @@
       "Indo-Pacific Pact",
       "Mother of all Deals"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Mother of all Deals"
   },
   {
@@ -491,7 +491,7 @@
       "11+ months",
       "14 months"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "11+ months"
   },
   {
@@ -506,7 +506,7 @@
       "GCC",
       "EU"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "GCC"
   },
   {
@@ -521,7 +521,7 @@
       "Renewable energy",
       "Defence"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Plastics & sustainability"
   },
   {
@@ -536,7 +536,7 @@
       "Chile",
       "Bolivia"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Argentina"
   },
   {
@@ -551,7 +551,7 @@
       "USD 175 million",
       "USD 200 million"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "USD 175 million"
   },
   {
@@ -566,7 +566,7 @@
       "8 February",
       "10 February"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "6 February"
   },
   {
@@ -581,7 +581,7 @@
       "Table Tennis",
       "Squash"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Badminton"
   },
   {
@@ -596,7 +596,7 @@
       "Aviation",
       "Power grid"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Port/Maritime"
   },
   {
@@ -611,7 +611,7 @@
       "Pharmaceuticals",
       "Textiles"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Mobile phones"
   },
   {
@@ -626,7 +626,7 @@
       "India Aviation Expo",
       "SkyFest 2026"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Wings India 2026"
   },
   {
@@ -641,7 +641,7 @@
       "Chikungunya",
       "Japanese Encephalitis"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Kyasanur Forest Disease (KFD)"
   },
   {
@@ -656,7 +656,7 @@
       "Gujarat",
       "Kerala"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Gujarat"
   },
   {
@@ -671,7 +671,7 @@
       "Ashwini Vaishnaw",
       "Rajeev Chandrasekhar"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Ashwini Vaishnaw"
   },
   {
@@ -686,7 +686,7 @@
       "Household income & expenditure",
       "Agricultural yields"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Household income & expenditure"
   },
   {
@@ -701,7 +701,7 @@
       "ICMR",
       "DRDO"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "CSIR-NIO"
   },
   {
@@ -716,7 +716,7 @@
       "10th largest",
       "7th largest"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "3rd largest"
   },
   {
@@ -731,7 +731,7 @@
       "Swine fever",
       "Bovine tuberculosis"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Foot-and-mouth disease (FMD)"
   },
   {
@@ -746,7 +746,7 @@
       "Japan",
       "Germany"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "USA"
   },
   {
@@ -761,7 +761,7 @@
       "90%+",
       "100%"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "90%+"
   },
   {
@@ -776,7 +776,7 @@
       "High unemployment",
       "Increased trade deficit"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Strong external resilience"
   },
   {
@@ -791,7 +791,7 @@
       "Railways Minister",
       "Sports Minister"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Sports Minister"
   },
   {
@@ -806,7 +806,7 @@
       "Urban traffic control",
       "Railway logistics"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Coastal security & airspace monitoring"
   },
   {
@@ -821,7 +821,7 @@
       "Haryana",
       "Punjab"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Haryana"
   },
   {
@@ -836,7 +836,7 @@
       "Annual Survey of Institutions for School Education (ASISSE)",
       "Labour Force Survey"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Labour Force Survey"
   },
   {
@@ -851,7 +851,7 @@
       "DRDO",
       "CSIR"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "DRDO"
   },
   {
@@ -866,7 +866,7 @@
       "Space research",
       "Education"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Sustainable development & maritime security"
   },
   {
@@ -881,7 +881,7 @@
       "World Environment Day",
       "Human Rights Day"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Zero Tolerance for FGM"
   },
   {
@@ -896,7 +896,7 @@
       "Renewable energy storage",
       "Defence weaponry"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Plastics recycling & sustainability"
   },
   {
@@ -911,7 +911,7 @@
       "Sushil Kumar",
       "Yogeshwar Dutt"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Mahavir Singh Phogat"
   },
   {
@@ -926,7 +926,7 @@
       "Taarak Mehta Ka Ooltah Chashmah",
       "Comedy Circus"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "CID"
   },
   {
@@ -941,7 +941,7 @@
       "Robert Downey Jr.",
       "Mark Ruffalo"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Robert Downey Jr."
   },
   {
@@ -956,7 +956,7 @@
       "Toy Story",
       "Madagascar"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Finding Nemo"
   },
   {
@@ -971,7 +971,7 @@
       "Vijay Yesudas",
       "Sid Sriram"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Dhanush"
   },
   {
@@ -986,7 +986,7 @@
       "Narnia",
       "Twilight"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Twilight"
   },
   {
@@ -1001,7 +1001,7 @@
       "Kangana Ranaut",
       "Vidya Balan"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Alia Bhatt"
   },
   {
@@ -1016,7 +1016,7 @@
       "CID",
       "Savdhaan India"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "CID"
   },
   {
@@ -1031,7 +1031,7 @@
       "Mr. India",
       "Sholay"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Mr. India"
   },
   {
@@ -1046,7 +1046,7 @@
       "COVID-19 Lockdown",
       "Demonetization"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "COVID-19 Lockdown"
   },
   {
@@ -1061,7 +1061,7 @@
       "Rang De Basanti",
       "Dil Chahta Hai"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Lagaan"
   },
   {
@@ -1076,7 +1076,7 @@
       "Shoojit Sircar",
       "Rajkumar Hirani"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Sriram Raghavan"
   },
   {
@@ -1091,7 +1091,7 @@
       "Ballia",
       "Sonbhadra"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Phulera"
   },
   {
@@ -1106,7 +1106,7 @@
       "Jared Leto",
       "Jack Nicholson"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Heath Ledger"
   },
   {
@@ -1121,7 +1121,7 @@
       "Maharashtra",
       "Tamil Nadu"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Karnataka"
   },
   {
@@ -1136,7 +1136,7 @@
       "Anu Malik",
       "Ilaiyaraaja"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "A.R. Rahman"
   },
   {
@@ -1151,7 +1151,7 @@
       "Hotstar",
       "Sony LIV"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Netflix"
   },
   {
@@ -1166,7 +1166,7 @@
       "1990s",
       "2000s"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "1980s"
   },
   {
@@ -1181,7 +1181,7 @@
       "Don series",
       "Gangs of Wasseypur"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Satya - Company - D"
   },
   {
@@ -1196,7 +1196,7 @@
       "Divine",
       "Emiway"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Divine"
   },
   {
@@ -1211,7 +1211,7 @@
       "Do Bigha Zamin",
       "Pather Panchali"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Mother India"
   },
   {
@@ -1226,7 +1226,7 @@
       "CASE",
       "JARVIS"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "TARS"
   },
   {
@@ -1241,7 +1241,7 @@
       "M.M. Keeravaani",
       "Ilaiyaraaja"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "M.M. Keeravaani"
   },
   {
@@ -1256,7 +1256,7 @@
       "Parasite",
       "Once Upon a Time in Hollywood"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Parasite"
   },
   {
@@ -1271,7 +1271,7 @@
       "Adoor Gopalakrishnan",
       "Bimal Roy"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Satyajit Ray"
   },
   {
@@ -1286,7 +1286,7 @@
       "James Cameron",
       "Denis Villeneuve"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Christopher Nolan"
   },
   {
@@ -1301,7 +1301,7 @@
       "Mythology",
       "Sociology"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Mythology"
   },
   {
@@ -1316,7 +1316,7 @@
       "Both A & B",
       "None"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Both A & B"
   },
   {
@@ -1331,7 +1331,7 @@
       "The Attacks of 26/11",
       "Hotel Mumbai"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "The Attacks of 26/11"
   },
   {
@@ -1346,7 +1346,7 @@
       "Red",
       "Orange"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Red"
   },
   {
@@ -1361,7 +1361,7 @@
       "Vasudeva",
       "Shantanu"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Dasharatha"
   },
   {
@@ -1376,7 +1376,7 @@
       "Drupada",
       "Harishchandra"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Janaka"
   },
   {
@@ -1391,7 +1391,7 @@
       "Maricha",
       "Subahu"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Vibhishana"
   },
   {
@@ -1406,7 +1406,7 @@
       "Karna",
       "Drona"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Krishna"
   },
   {
@@ -1421,7 +1421,7 @@
       "Tulsidas",
       "Kalidasa"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Ved Vyasa"
   },
   {
@@ -1436,7 +1436,7 @@
       "Shiva",
       "Indra"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Shiva"
   },
   {
@@ -1451,7 +1451,7 @@
       "Varuna",
       "Yama"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Vayu"
   },
   {
@@ -1466,7 +1466,7 @@
       "Virata",
       "Shalya"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Drupada"
   },
   {
@@ -1481,7 +1481,7 @@
       "Sudarshan Chakra",
       "Vajra"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Sudarshan Chakra"
   },
   {
@@ -1496,7 +1496,7 @@
       "Brahma",
       "Indra"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Shiva"
   },
   {
@@ -1511,7 +1511,7 @@
       "Dronacharya",
       "Vashistha"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Dronacharya"
   },
   {
@@ -1526,7 +1526,7 @@
       "Agni",
       "Varuna"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Surya"
   },
   {
@@ -1541,7 +1541,7 @@
       "14",
       "18"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "18"
   },
   {
@@ -1556,7 +1556,7 @@
       "Vamana",
       "Parashurama"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Narasimha"
   },
   {
@@ -1571,7 +1571,7 @@
       "Devaki",
       "Radha"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Devaki"
   },
   {
@@ -1586,7 +1586,7 @@
       "Zeus",
       "Apollo"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Zeus"
   },
   {
@@ -1601,7 +1601,7 @@
       "Dronacharya",
       "Kripa"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Dronacharya"
   },
   {
@@ -1616,7 +1616,7 @@
       "Ganga",
       "Narmada"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Ganga"
   },
   {
@@ -1631,7 +1631,7 @@
       "Norse",
       "Egyptian"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Norse"
   },
   {
@@ -1646,7 +1646,7 @@
       "Vashistha",
       "Vishwamitra"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Gautama"
   },
   {
@@ -1661,7 +1661,7 @@
       "Bhishma",
       "Shalya"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Bhishma"
   },
   {
@@ -1676,7 +1676,7 @@
       "Protect Hastinapur",
       "Serve the Pandavas"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Lifelong celibacy"
   },
   {
@@ -1691,7 +1691,7 @@
       "Kashyapa",
       "Vishwamitra"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Jamadagni"
   },
   {
@@ -1706,7 +1706,7 @@
       "Bali",
       "Namuchi"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Hiranyaksha"
   },
   {
@@ -1721,7 +1721,7 @@
       "Sauti",
       "Narada"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Vaishampayana"
   },
   {
@@ -1736,7 +1736,7 @@
       "Meru",
       "Kailash"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Dronagiri"
   },
   {
@@ -1751,7 +1751,7 @@
       "Hades",
       "Hermes"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Hades"
   },
   {
@@ -1766,7 +1766,7 @@
       "Agastya",
       "Vashistha"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Gautama"
   },
   {
@@ -1781,7 +1781,7 @@
       "Norse",
       "Egyptian"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Norse"
   },
   {
@@ -1796,7 +1796,7 @@
       "Parashurama",
       "Krishna"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Vamana"
   },
   {
@@ -1811,7 +1811,7 @@
       "Virat Kohli",
       "Brian Lara"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Rohit Sharma"
   },
   {
@@ -1826,7 +1826,7 @@
       "Virat Kohli",
       "KL Rahul"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Rohit Sharma"
   },
   {
@@ -1841,7 +1841,7 @@
       "Miroslav Klose",
       "Ali Daei"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Cristiano Ronaldo"
   },
   {
@@ -1856,7 +1856,7 @@
       "Extra time and possibly penalty shootout is played",
       "Both teams qualify"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Extra time and possibly penalty shootout is played"
   },
   {
@@ -1871,7 +1871,7 @@
       "Rohit Sharma",
       "Suresh Raina"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Virat Kohli"
   },
   {
@@ -1886,7 +1886,7 @@
       "3",
       "6"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "5"
   },
   {
@@ -1901,7 +1901,7 @@
       "Angelo Mathews",
       "Sadeera Samarawickrama"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Angelo Mathews"
   },
   {
@@ -1916,7 +1916,7 @@
       "Charlotte Edwards",
       "Ellyse Perry"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Mithali Raj"
   },
   {
@@ -1931,7 +1931,7 @@
       "Brazil",
       "Italy"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Brazil"
   },
   {
@@ -1946,7 +1946,7 @@
       "Kuldeep Yadav",
       "Mohammed Siraj"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Mohammed Shami"
   },
   {
@@ -1961,7 +1961,7 @@
       "Ravichandran Ashwin vs David Warner",
       "Harbhajan Singh vs Ricky Ponting"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Ravichandran Ashwin vs David Warner"
   },
   {
@@ -1976,7 +1976,7 @@
       "Shikhar Dhawan",
       "Ravindra Jadeja"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Shikhar Dhawan"
   },
   {
@@ -1991,7 +1991,7 @@
       "Rohit Sharma",
       "Rahul Dravid"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Virat Kohli"
   },
   {
@@ -2006,7 +2006,7 @@
       "Miroslav Klose",
       "Diego Maradona"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Miroslav Klose"
   },
   {
@@ -2021,7 +2021,7 @@
       "Piyush Chawla",
       "Lasith Malinga"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Yuzvendra Chahal"
   },
   {
@@ -2036,7 +2036,7 @@
       "An indirect free kick inside the penalty area",
       "A handball by the attacking team"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Direct-free-kick offense committed by the defending team inside own penalty area"
   },
   {
@@ -2051,7 +2051,7 @@
       "Player misses the next match only",
       "Player is temporarily suspended"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Player receives a red card and is sent off"
   },
   {
@@ -2066,7 +2066,7 @@
       "Indirect free kick",
       "Throw-in"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Drop ball"
   },
   {
@@ -2081,7 +2081,7 @@
       "Zinedine Zidane",
       "Franz Beckenbauer"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Diego Maradona"
   },
   {
@@ -2096,7 +2096,7 @@
       "Deepika Kumari",
       "Avinash Sable"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Aditi Ashok"
   },
   {
@@ -2111,7 +2111,7 @@
       "Mahela Jayawardene",
       "Brian Lara"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Garry Sobers"
   },
   {
@@ -2126,7 +2126,7 @@
       "Uruguay",
       "England"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Uruguay"
   },
   {
@@ -2141,7 +2141,7 @@
       "C.K. Nayudu",
       "Mansoor Ali Khan Pataudi"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Iftikhar Ali Khan Pataudi"
   },
   {
@@ -2156,7 +2156,7 @@
       "Direct free kick or penalty kick for the attacking team",
       "Drop ball"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Direct free kick or penalty kick for the attacking team"
   },
   {
@@ -2171,7 +2171,7 @@
       "Dropped ball for the team that last touched the ball",
       "Indirect free kick"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Dropped ball for the team that last touched the ball"
   },
   {
@@ -2186,7 +2186,7 @@
       "Opponents must reduce their number of kickers to match",
       "Penalty shootout is abandoned"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Opponents must reduce their number of kickers to match"
   },
   {
@@ -2201,7 +2201,7 @@
       "Mohammed Shami",
       "Jasprit Bumrah"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Stuart Binny"
   },
   {
@@ -2216,7 +2216,7 @@
       "Arjun Babuta",
       "Saurabh Chaudhary"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Sarabjot Singh"
   },
   {
@@ -2231,7 +2231,7 @@
       "Power hits down the middle",
       "Off-speed roll shots"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Sharp cross-court spikes"
   },
   {
@@ -2246,7 +2246,7 @@
       "11 feet",
       "12 feet"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "10 feet"
   },
   {
@@ -2261,7 +2261,7 @@
       ".cpp",
       ".c"
     ],
-    "opened": true,
+    "opened": false,
     "answer": ".py"
   },
   {
@@ -2276,7 +2276,7 @@
       "echo \"Hello World\"",
       "printf(\"Hello World\")"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "System.out.println(\"Hello World\")"
   },
   {
@@ -2291,7 +2291,7 @@
       "var-name",
       "@var"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "_var"
   },
   {
@@ -2306,7 +2306,7 @@
       "24",
       "9"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "14"
   },
   {
@@ -2321,7 +2321,7 @@
       "switch",
       "select"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "for"
   },
   {
@@ -2336,7 +2336,7 @@
       "%",
       "//"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "**"
   },
   {
@@ -2351,7 +2351,7 @@
       "char",
       "bool"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "float"
   },
   {
@@ -2366,7 +2366,7 @@
       ";",
       ","
     ],
-    "opened": true,
+    "opened": false,
     "answer": ";"
   },
   {
@@ -2381,7 +2381,7 @@
       "func",
       "define"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "def"
   },
   {
@@ -2396,7 +2396,7 @@
       "/* comment */",
       "# comment"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "// comment"
   },
   {
@@ -2411,7 +2411,7 @@
       "arr[5] = int;",
       "int arr = [5];"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "int arr[] = new int[5];"
   },
   {
@@ -2426,7 +2426,7 @@
       "tuple",
       "dict"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "tuple"
   },
   {
@@ -2441,7 +2441,7 @@
       "Random",
       "Circular"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "LIFO"
   },
   {
@@ -2456,7 +2456,7 @@
       "const",
       "static"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "const"
   },
   {
@@ -2464,14 +2464,14 @@
     "company": "Syntax Systems",
     "severity": "Medium",
     "type": "mcq",
-    "question": "Which of the following loops executes at least once even if the condition is true?",
+    "question": "Which of the following loops executes at least once even if the condition is false?",
     "options": [
       "for",
       "while",
       "do-while",
       "foreach"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "do-while"
   },
   {
@@ -2486,7 +2486,7 @@
       "throw-error",
       "handle-exception"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "try-catch"
   },
   {
@@ -2501,7 +2501,7 @@
       "12",
       "9"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "11"
   },
   {
@@ -2516,7 +2516,7 @@
       "p int*;",
       "pointer p;"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "int* p;"
   },
   {
@@ -2531,7 +2531,7 @@
       "break",
       "exit"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "break"
   },
   {
@@ -2546,7 +2546,7 @@
       "inherits",
       "super"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "extends"
   },
   {
@@ -2561,7 +2561,7 @@
       "[4]",
       "Error"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "[1, 2, 3, 4]"
   },
   {
@@ -2576,7 +2576,7 @@
       "Dijkstra",
       "Kruskal"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Dijkstra"
   },
   {
@@ -2591,7 +2591,7 @@
       "~ClassName()",
       "function ClassName()"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "ClassName()"
   },
   {
@@ -2606,7 +2606,7 @@
       "Function creates a temporary variable",
       "Function cannot modify original variable"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Passes the address of variable to function"
   },
   {
@@ -2621,7 +2621,7 @@
       "10",
       "13"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "12"
   },
   {
@@ -2629,14 +2629,14 @@
     "company": "Syntax Systems",
     "severity": "Hard",
     "type": "mcq",
-    "question": "In C, which of the following is true about memory allocation using malloc()?",
+    "question": "In C, which of the following is false about memory allocation using malloc()?",
     "options": [
       "Allocates memory at runtime",
       "Returns a void pointer",
       "Allocates memory at compile-time",
       "Requires free() to prevent memory leaks"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Allocates memory at compile-time"
   },
   {
@@ -2651,7 +2651,7 @@
       "Linked list",
       "Tree"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Stack"
   },
   {
@@ -2666,7 +2666,7 @@
       "->",
       "*"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "->"
   },
   {
@@ -2681,7 +2681,7 @@
       "def",
       "anon"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "lambda"
   },
   {
@@ -2696,7 +2696,7 @@
       "Insertion Sort",
       "Merge Sort"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Insertion Sort"
   },
   {
@@ -2711,7 +2711,7 @@
       "Supervised Learning",
       "Deep Learning"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Supervised Learning"
   },
   {
@@ -2726,7 +2726,7 @@
       "Model learns training data too well and fails on new data",
       "Model ignores training data"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Model learns training data too well and fails on new data"
   },
   {
@@ -2741,7 +2741,7 @@
       "Decision Tree",
       "K-Means Clustering"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "K-Means Clustering"
   },
   {
@@ -2756,7 +2756,7 @@
       "Linear Regression",
       "Apriori"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Decision Tree"
   },
   {
@@ -2771,7 +2771,7 @@
       "Control hardware devices",
       "Create website"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Process information similar to the human brain"
   },
   {
@@ -2786,7 +2786,7 @@
       "Voice Assistant",
       "Notepad"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Voice Assistant"
   },
   {
@@ -2801,7 +2801,7 @@
       "Deep Learning",
       "Reinforcement Learning"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Reinforcement Learning"
   },
   {
@@ -2816,7 +2816,7 @@
       "Customer Segmentation",
       "Image Compression"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Spam Email Detection"
   },
   {
@@ -2831,7 +2831,7 @@
       "To increase data size",
       "To draw graphs"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "To measure model error"
   },
   {
@@ -2846,7 +2846,7 @@
       "Face Recognition",
       "Recommendation System"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Face Recognition"
   },
   {
@@ -2861,7 +2861,7 @@
       "K-Means",
       "Apriori"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "SMOTE"
   },
   {
@@ -2876,7 +2876,7 @@
       "Specificity",
       "Mean Squared Error"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Recall"
   },
   {
@@ -2891,7 +2891,7 @@
       "Apriori Algorithm",
       "K-Means"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Gradient Descent"
   },
   {
@@ -2906,7 +2906,7 @@
       "Deep Neural Networks",
       "K-Nearest Neighbors"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Deep Neural Networks"
   },
   {
@@ -2921,7 +2921,7 @@
       "Random Forest",
       "K-Means"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Random Forest"
   },
   {
@@ -2936,7 +2936,7 @@
       "Softmax",
       "Tanh"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Sigmoid"
   },
   {
@@ -2951,7 +2951,7 @@
       "Speeds up training",
       "Removes noise"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Converts outputs into probability distribution"
   },
   {
@@ -2966,7 +2966,7 @@
       "Underfitting",
       "Overfitting"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Overfitting"
   },
   {
@@ -2981,7 +2981,7 @@
       "Batch Gradient Descent",
       "Random Search"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Batch Gradient Descent"
   },
   {
@@ -2996,7 +2996,7 @@
       "Cannot handle large datasets",
       "Requires normalization"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Assumption of feature independence"
   },
   {
@@ -3011,7 +3011,7 @@
       "Overfitting due to high variance",
       "Underfitting due to low complexity"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Overfitting due to high variance"
   },
   {
@@ -3026,7 +3026,7 @@
       "There is a tradeoff between bias and variance",
       "Bias and variance are independent"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "There is a tradeoff between bias and variance"
   },
   {
@@ -3041,7 +3041,7 @@
       "Batch size is large",
       "Model is linear"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Loss surface is non-convex"
   },
   {
@@ -3056,7 +3056,7 @@
       "Highly imbalanced dataset",
       "Small dataset"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Highly imbalanced dataset"
   },
   {
@@ -3071,7 +3071,7 @@
       "Deep network with sigmoid activation",
       "Decision Tree"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Deep network with sigmoid activation"
   },
   {
@@ -3086,7 +3086,7 @@
       "Reduction in training data",
       "Gradient explosion"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Curse of dimensionality"
   },
   {
@@ -3101,7 +3101,7 @@
       "High accuracy guarantees generalization",
       "Fewer neurons"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "Optimization bias of SGD"
   },
   {
@@ -3111,13 +3111,13 @@
     "type": "mcq",
     "question": "When can Recall be preferred over Precision?",
     "options": [
-      "When true positives are costly",
-      "When true negatives are costly",
+      "When false positives are costly",
+      "When false negatives are costly",
       "When dataset is small",
       "When accuracy is high"
     ],
-    "opened": true,
-    "answer": "When true negatives are costly"
+    "opened": false,
+    "answer": "When false negatives are costly"
   },
   {
     "id": 209,
@@ -3131,7 +3131,7 @@
       "It introduces noise during training",
       "It increases learning rate"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "It introduces noise during training"
   },
   {
@@ -3139,14 +3139,14 @@
     "company": "NeuroMind AI",
     "severity": "Hard",
     "type": "mcq",
-    "question": "Which statement about the ReLU (Rectified Linear Unit) activation function is true?",
+    "question": "Which statement about the ReLU (Rectified Linear Unit) activation function is false?",
     "options": [
       "It can suffer from the 'dying ReLU' problem",
       "It is computationally efficient",
       "It is bounded between 0 and 1",
       "It helps mitigate the vanishing gradient problem"
     ],
-    "opened": true,
+    "opened": false,
     "answer": "It is bounded between 0 and 1"
   }
 ]
